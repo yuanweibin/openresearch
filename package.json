@@ -1,6 +1,6 @@
 {
   "name": "openresearch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Evidence-driven research cycles for Codex and Claude Code",
   "type": "module",
   "private": true,
@@ -37,6 +37,6 @@
   "scripts": {
     "build": "node scripts/build-plugins.js",
     "test": "node --test",
-    "prepack": "npm run build && npm test"
+    "check": "npm run build && npm test"
   }
 }

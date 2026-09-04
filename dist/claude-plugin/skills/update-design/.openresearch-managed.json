@@ -1,13 +1,13 @@
 {
   "generatedBy": "openresearch",
-  "packageVersion": "0.1.0",
+  "packageVersion": "0.1.1",
   "workflowVersion": "0.1.0",
   "canonicalContentHash": "41c2c81b0d3a72113771534705d97e1f0cd01f632bc2665d7e3dbc31f1d5e132",
   "platform": "claude",
   "distribution": "plugin",
   "skill": "openresearch-update-design",
   "files": {
-    "SKILL.md": "6b6a2d881d1cdc444e6dbd29b235d4e2083a04a69c00d37281fdada74abc42ed",
+    "SKILL.md": "3c5f67bbdb9df4ffbf718cc2b6213207c268cc089c4565de011ba5b3fdc03f94",
     "references/artifact-contract.md": "82b1c099c289caead2891760e08835aa2a40b5ac2b6bbcef58032a2a211b6333",
     "references/authority.md": "9fac6aa0f0974bd113cb47f3754555a891f68fef92fd94983235728c49b9a128",
     "references/cycle-template.md": "d97be44ede09ed0c7647ec47f500a9bab4cd9f886cf5c46279365ce4f149c307",

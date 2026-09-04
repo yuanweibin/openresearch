@@ -9,13 +9,13 @@ It is deliberately not a renamed software specification process. A successful Cy
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.1.0 init --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.1.1 init --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.1.0
+npm install -g github:yuanweibin/openresearch#v0.1.1
 openresearch init --tools codex,claude
 ```
 
@@ -69,7 +69,7 @@ The CLI remains the canonical cross-agent installer. Native plugin artifacts are
 ## Development
 
 ```bash
-npm test
+npm run check
 npm pack --dry-run
 ```
 

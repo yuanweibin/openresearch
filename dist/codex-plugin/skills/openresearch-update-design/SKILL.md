@@ -3,7 +3,7 @@ name: openresearch-update-design
 description: Establish the first user-approved OpenResearch Program design or promote an explicitly approved Cycle Design Delta into a new canonical revision. This is the sole workflow allowed to modify openresearch/design/ and it does not run experiments.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.1.0; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 41c2c81b0d3a72113771534705d97e1f0cd01f632bc2665d7e3dbc31f1d5e132 -->
+<!-- generatedBy: openresearch; packageVersion: 0.1.1; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 41c2c81b0d3a72113771534705d97e1f0cd01f632bc2665d7e3dbc31f1d5e132 -->
 
 # Update OpenResearch Design
 

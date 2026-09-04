@@ -3,7 +3,7 @@ name: openresearch-run-cycle
 description: Execute an explicitly approved OpenResearch Cycle, continuously publish Evidence, diagnose the first supported bottleneck, and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.1.0; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 6a400e669ea002bf75176c0c6cb99f19bcbdfa0403851223526ceb14a89a24db -->
+<!-- generatedBy: openresearch; packageVersion: 0.1.1; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 6a400e669ea002bf75176c0c6cb99f19bcbdfa0403851223526ceb14a89a24db -->
 
 # Run an OpenResearch Cycle
 
