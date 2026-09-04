@@ -75,4 +75,4 @@ npm pack --dry-run
 
 OpenResearch is licensed under the MIT License.
 
-The protocol rationale and authority model are documented in [docs/design.md](docs/design.md).
+The protocol rationale and authority model are documented in [docs/design.md](docs/design.md). The detailed Chinese design history is retained in [docs/design-history.zh-CN.md](docs/design-history.zh-CN.md).
