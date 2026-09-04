@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yuanweibin/openresearch/schemas/baseline-status.schema.json",
+  "title": "OpenResearch Baseline Status",
+  "type": "object",
+  "required": ["artifact", "schema_version", "baseline", "state", "reference", "consumer_eligibility", "updated_at"],
+  "properties": {
+    "artifact": { "const": "baseline-status" },
+    "schema_version": { "const": "0.1.0" },
+    "baseline": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "state": { "enum": ["planned", "in-progress", "partial", "qualified", "superseded"] },
+    "reference": { "type": "string", "minLength": 1 },
+    "consumer_eligibility": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "updated_at": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}

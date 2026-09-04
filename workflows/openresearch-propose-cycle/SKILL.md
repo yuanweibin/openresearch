@@ -26,6 +26,8 @@ The contract must:
 - name compute/data assumptions without turning resource availability into a scientific rationale;
 - tie consequential settings to item-level literature evidence or mark them `project-hypothesis`;
 - make every required deliverable inspectable at a named path with a readiness condition.
+- identify every consumed Baseline by stable ID/revision or hash, its eligibility, and the exact
+  setup match; do not make the Cycle silently rebuild a reusable literature benchmark.
 
 Use two-level tasks only where the boundary helps another agent resume without repeating long work. Keep repeated rounds in a live ledger.
 

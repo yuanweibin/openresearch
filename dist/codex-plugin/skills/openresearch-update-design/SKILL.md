@@ -3,7 +3,7 @@ name: openresearch-update-design
 description: Establish the first user-approved OpenResearch Program design or promote an explicitly approved Cycle Design Delta into a new canonical revision. This is the sole workflow allowed to modify openresearch/design/ and it does not run experiments.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.1.2; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 41c2c81b0d3a72113771534705d97e1f0cd01f632bc2665d7e3dbc31f1d5e132 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.0; workflowVersion: 0.2.0; platform: codex; distribution: plugin; contentHash: 4ce1af24ba8c51ed3638a34122d7c994a3bd2025980e3a2f6b1167ec0ed06f50 -->
 
 # Update OpenResearch Design
 
@@ -18,7 +18,7 @@ If approval is absent, ambiguous, or applies to a different revision, do not mod
 
 When approved:
 
-1. verify the cited Cycle Evidence and disclose anomalies, contradictory Evidence, scope, and consumer eligibility;
+1. verify the cited Cycle and/or Baseline Evidence and disclose anomalies, contradictory Evidence, scope, and consumer eligibility;
 2. update only the affected design contracts while preserving unrelated frozen decisions;
 3. maintain item-level literature maps, including precise match and deviation fields and links to local Evidence;
 4. advance the Program design revision exactly once and update `openresearch/design/README.md`;

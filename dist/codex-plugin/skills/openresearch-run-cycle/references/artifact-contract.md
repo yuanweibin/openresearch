@@ -10,6 +10,16 @@ Use the smallest artifact set that makes the scientific decision inspectable and
 - `openresearch/design/references.md`: citation records used by design literature maps.
 - `openresearch/design/decisions.md`: approved design promotions and reversals.
 
+## Baseline layer
+
+Baselines live below `openresearch/baselines/<stable-slug>/` and follow the
+[Baseline contract](baseline-contract.md). They preserve reusable paper-reported, solver-
+reproduction, and setup-extension Evidence separately. Every completed result has both indexed
+raw numeric output and an inspectable PNG; scalable figures are retained when practical.
+
+A Baseline is read-only to Cycles. A Cycle records the exact Baseline revision or hash it
+consumed, while candidate-specific results remain in that Cycle.
+
 ## Cycle layer
 
 Use a two-digit, monotonically increasing creation sequence: `cycles/01-name/`, `cycles/02-name/`. Never reorder or reuse a sequence.

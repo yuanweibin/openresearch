@@ -27,6 +27,25 @@ test("plugin builds expose platform-appropriate skill names", () => {
   assert.equal(fs.existsSync(claudeSkill), true);
   assert.match(fs.readFileSync(codexSkill, "utf8"), /^---\nname: openresearch-explore\n/);
   assert.match(fs.readFileSync(claudeSkill, "utf8"), /^---\nname: explore\n/);
+
+  const codexBaselineSkill = path.join(
+    repository,
+    "dist",
+    "codex-plugin",
+    "skills",
+    "openresearch-build-baseline",
+    "SKILL.md",
+  );
+  const claudeBaselineSkill = path.join(
+    repository,
+    "dist",
+    "claude-plugin",
+    "skills",
+    "build-baseline",
+    "SKILL.md",
+  );
+  assert.equal(fs.existsSync(codexBaselineSkill), true);
+  assert.equal(fs.existsSync(claudeBaselineSkill), true);
 });
 
 test("native manifests point at the shared generated skill views", () => {

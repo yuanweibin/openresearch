@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   APPROVAL_STATES,
+  BASELINE_STATES,
   EXECUTION_STATES,
   SCHEMA_VERSION,
   SCIENTIFIC_STATES,
@@ -9,6 +10,7 @@ import {
 import { listFiles, readFrontmatter } from "./files.js";
 
 const CYCLE_PATTERN = /^\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const BASELINE_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REQUIRED_CYCLE_FILES = [
   "question.md",
   "experiment.md",
@@ -17,6 +19,21 @@ const REQUIRED_CYCLE_FILES = [
   "status.md",
   "decisions.md",
 ];
+const REQUIRED_BASELINE_FILES = ["README.md", "source.md", "setup.md", "runs.md", "status.md"];
+
+export function listBaselines(projectRoot) {
+  const root = path.join(projectRoot, "openresearch", "baselines");
+  if (!fs.existsSync(root)) return [];
+  return fs
+    .readdirSync(root, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && BASELINE_PATTERN.test(entry.name))
+    .map((entry) => {
+      const directory = path.join(root, entry.name);
+      const status = readFrontmatter(path.join(directory, "status.md"));
+      return { id: entry.name, directory, ...status };
+    })
+    .sort((a, b) => a.id.localeCompare(b.id));
+}
 
 export function listCycles(projectRoot) {
   const root = path.join(projectRoot, "openresearch", "cycles");
@@ -48,6 +65,13 @@ export function projectStatus(projectRoot) {
     nextLegalAction: cycle.next_legal_action ?? null,
   }));
   const activeCycles = cycles.filter((cycle) => cycle.executionState !== "complete");
+  const baselines = listBaselines(projectRoot).map((baseline) => ({
+    id: baseline.id,
+    state: baseline.state ?? "unknown",
+    reference: baseline.reference ?? null,
+    consumerEligibility: baseline.consumer_eligibility ?? [],
+    updatedAt: baseline.updated_at ?? null,
+  }));
   return {
     schemaVersion: program.schema_version ?? null,
     programDesignRevision:
@@ -55,9 +79,84 @@ export function projectStatus(projectRoot) {
     designApproval: design.approval ?? null,
     activeCycles,
     cycles,
+    baselines,
     nextLegalAction: program.next_legal_action ?? null,
     updatedAt: program.updated_at ?? null,
   };
+}
+
+function resolveBaseline(projectRoot, requested, issues) {
+  const baselines = listBaselines(projectRoot);
+  if (!requested) return baselines;
+  const matches = baselines.filter(
+    (baseline) => baseline.id === requested || baseline.id.startsWith(`${requested}-`),
+  );
+  if (matches.length !== 1) {
+    issues.push(
+      issue(
+        "error",
+        matches.length ? "ambiguous-baseline" : "baseline-not-found",
+        matches.length
+          ? `Baseline selector ${requested} matches ${matches.map((item) => item.id).join(", ")}`
+          : `Baseline not found: ${requested}`,
+      ),
+    );
+    return [];
+  }
+  return matches;
+}
+
+function validateBaseline(baseline, issues) {
+  const artifacts = {
+    "README.md": "baseline-index",
+    "source.md": "baseline-source",
+    "setup.md": "baseline-setup",
+    "runs.md": "baseline-runs",
+    "status.md": "baseline-status",
+  };
+  for (const required of REQUIRED_BASELINE_FILES) {
+    const file = path.join(baseline.directory, required);
+    if (!fs.existsSync(file)) {
+      issues.push(issue("error", "missing-baseline-artifact", `Missing ${required}`, file));
+    } else {
+      validateFrontmatter(file, artifacts[required], issues);
+    }
+  }
+
+  const statusFile = path.join(baseline.directory, "status.md");
+  const status = validateFrontmatter(statusFile, "baseline-status", issues);
+  if (status.baseline !== baseline.id) {
+    issues.push(
+      issue("error", "baseline-id-mismatch", `Expected baseline field ${baseline.id}`, statusFile),
+    );
+  }
+  if (!BASELINE_STATES.has(status.state)) {
+    issues.push(issue("error", "baseline-state", "Unknown Baseline state", statusFile));
+  }
+
+  if (["partial", "qualified"].includes(status.state)) {
+    const report = path.join(baseline.directory, "results", "report.md");
+    const rawManifest = path.join(baseline.directory, "results", "raw", "manifest.json");
+    const figureRoot = path.join(baseline.directory, "results", "figures");
+    const figures = fs.existsSync(figureRoot)
+      ? listFiles(figureRoot).filter((file) => file.toLowerCase().endsWith(".png"))
+      : [];
+    if (!fs.existsSync(report)) {
+      issues.push(issue("error", "missing-baseline-report", "Partial or qualified Baseline requires results/report.md", report));
+    }
+    if (!fs.existsSync(rawManifest)) {
+      issues.push(issue("error", "missing-baseline-raw", "Partial or qualified Baseline requires results/raw/manifest.json", rawManifest));
+    }
+    if (!figures.length) {
+      issues.push(issue("error", "missing-baseline-figure", "Partial or qualified Baseline requires at least one PNG under results/figures", figureRoot));
+    }
+  }
+  if (
+    status.state === "qualified" &&
+    (!Array.isArray(status.consumer_eligibility) || !status.consumer_eligibility.length)
+  ) {
+    issues.push(issue("error", "missing-baseline-eligibility", "Qualified Baseline requires named consumer_eligibility", statusFile));
+  }
 }
 
 function issue(level, code, message, file = null) {
@@ -203,7 +302,7 @@ function validateCycle(cycle, issues) {
   }
 }
 
-export function validateProject(projectRoot, requestedCycle = null) {
+export function validateProject(projectRoot, requestedCycle = null, requestedBaseline = null) {
   const issues = [];
   const researchRoot = path.join(projectRoot, "openresearch");
   const requiredProgramFiles = [
@@ -213,6 +312,7 @@ export function validateProject(projectRoot, requestedCycle = null) {
     [path.join("design", "README.md"), "program-design-index"],
     [path.join("design", "decisions.md"), "program-design-decisions"],
     [path.join("design", "references.md"), "program-design-references"],
+    [path.join("baselines", "README.md"), "baseline-catalog"],
     [path.join("cycles", "README.md"), null],
   ];
   for (const [relative, artifact] of requiredProgramFiles) {
@@ -259,16 +359,28 @@ export function validateProject(projectRoot, requestedCycle = null) {
 
   const selected = resolveCycle(projectRoot, requestedCycle, issues);
   for (const cycle of selected) validateCycle(cycle, issues);
+  const selectedBaselines = resolveBaseline(projectRoot, requestedBaseline, issues);
+  for (const baseline of selectedBaselines) validateBaseline(baseline, issues);
   if (fs.existsSync(researchRoot)) {
-    validateMarkdownLinks(requestedCycle && selected.length === 1 ? selected[0].directory : researchRoot, issues);
+    const scopeRoot = requestedCycle && selected.length === 1
+      ? selected[0].directory
+      : requestedBaseline && selectedBaselines.length === 1
+        ? selectedBaselines[0].directory
+        : researchRoot;
+    validateMarkdownLinks(scopeRoot, issues);
   }
   const errors = issues.filter((item) => item.level === "error");
   const warnings = issues.filter((item) => item.level === "warning");
   return {
     valid: errors.length === 0,
-    scope: requestedCycle ? `cycle:${requestedCycle}` : "program",
+    scope: requestedCycle
+      ? `cycle:${requestedCycle}`
+      : requestedBaseline
+        ? `baseline:${requestedBaseline}`
+        : "program",
     errors,
     warnings,
     checkedCycles: selected.map((cycle) => cycle.id),
+    checkedBaselines: selectedBaselines.map((baseline) => baseline.id),
   };
 }

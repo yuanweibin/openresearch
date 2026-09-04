@@ -26,12 +26,13 @@ function assertSkill(root, toolDirectory, name) {
   assert.match(fs.readFileSync(path.join(directory, "SKILL.md"), "utf8"), /generatedBy: openresearch/);
 }
 
-test("Codex-only init installs four project skills and validates", () => {
+test("Codex-only init installs five project skills and validates", () => {
   const root = workspace();
   const initialized = run(root, "init", "--tools", "codex", "--json");
   assert.equal(initialized.status, 0, initialized.stderr);
   for (const name of [
     "openresearch-explore",
+    "openresearch-build-baseline",
     "openresearch-propose-cycle",
     "openresearch-run-cycle",
     "openresearch-update-design",
@@ -39,6 +40,7 @@ test("Codex-only init installs four project skills and validates", () => {
     assertSkill(root, ".agents", name);
   }
   assert.equal(fs.existsSync(path.join(root, ".claude")), false);
+  assert.equal(fs.existsSync(path.join(root, "openresearch", "baselines", "README.md")), true);
   const validated = run(root, "validate", "--json");
   assert.equal(validated.status, 0, validated.stdout + validated.stderr);
   assert.equal(JSON.parse(validated.stdout).valid, true);
@@ -108,6 +110,43 @@ test("status reports a valid empty Program", () => {
   assert.equal(status.status, 0, status.stderr);
   const payload = JSON.parse(status.stdout);
   assert.equal(payload.activeCycles.length, 0);
+  assert.equal(payload.baselines.length, 0);
   assert.match(payload.programDesignRevision, /^OR-\d{4}-\d{2}-\d{2}\.0$/);
   assert.equal(payload.designApproval, "pending");
+});
+
+test("partial Baseline requires raw data and a PNG figure", () => {
+  const root = workspace();
+  assert.equal(run(root, "init", "--tools", "codex").status, 0);
+  const baseline = path.join(root, "openresearch", "baselines", "tgv-example-2021");
+  fs.mkdirSync(path.join(baseline, "results", "raw"), { recursive: true });
+  fs.mkdirSync(path.join(baseline, "results", "figures"), { recursive: true });
+  const artifacts = {
+    "README.md": "baseline-index",
+    "source.md": "baseline-source",
+    "setup.md": "baseline-setup",
+    "runs.md": "baseline-runs",
+  };
+  for (const [file, artifact] of Object.entries(artifacts)) {
+    fs.writeFileSync(
+      path.join(baseline, file),
+      `---\nartifact: ${artifact}\nschema_version: 0.1.0\n---\n\n# ${artifact}\n`,
+    );
+  }
+  fs.writeFileSync(
+    path.join(baseline, "status.md"),
+    "---\nartifact: baseline-status\nschema_version: 0.1.0\nbaseline: tgv-example-2021\nstate: partial\nreference: Example2021\nconsumer_eligibility: [contextual-comparison]\nupdated_at: 2026-09-04\n---\n",
+  );
+  fs.mkdirSync(path.join(baseline, "results"), { recursive: true });
+  fs.writeFileSync(path.join(baseline, "results", "report.md"), "# Report\n");
+
+  const missing = run(root, "validate", "--baseline", "tgv-example-2021", "--json");
+  assert.notEqual(missing.status, 0);
+  assert.match(missing.stdout, /missing-baseline-raw/);
+  assert.match(missing.stdout, /missing-baseline-figure/);
+
+  fs.writeFileSync(path.join(baseline, "results", "raw", "manifest.json"), "{}\n");
+  fs.writeFileSync(path.join(baseline, "results", "figures", "comparison.png"), "png-placeholder\n");
+  const valid = run(root, "validate", "--baseline", "tgv-example-2021", "--json");
+  assert.equal(valid.status, 0, valid.stdout + valid.stderr);
 });

@@ -1,0 +1,17 @@
+{
+  "generatedBy": "openresearch",
+  "packageVersion": "0.2.0",
+  "workflowVersion": "0.2.0",
+  "canonicalContentHash": "b45dcf8e825e53e35f37b73c22688f0382e438105dfbf3228eb961adbc0002e1",
+  "platform": "claude",
+  "distribution": "plugin",
+  "skill": "openresearch-build-baseline",
+  "files": {
+    "SKILL.md": "8c62d9c958a0f6fdd6b09ca3fc18cb11a816a55136ba0cc78ccbe9c67c941d0b",
+    "references/artifact-contract.md": "c1053e94fb55bf9ad129d89447582496f0c5f0203a25c62350573153650afa33",
+    "references/authority.md": "762a9cd0aa6640cd7bc53309ba3e0e449b0210cf0f2088441c56163b5f825fc7",
+    "references/baseline-contract.md": "efca8ebc585254bac6a86b0a099550b9bc356243e1b49dc92d6c81230ff1b34e",
+    "references/cycle-template.md": "d97be44ede09ed0c7647ec47f500a9bab4cd9f886cf5c46279365ce4f149c307",
+    "references/literature-map.md": "75292263372d69e960f1b3d8a4b96b9cf8fbdc833600ba5edac6f60b8254b233"
+  }
+}

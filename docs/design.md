@@ -18,6 +18,9 @@ The default strategy is to build a small but scientifically persuasive end-to-en
 
 - **Program** holds the long-lived question, intended contribution, module boundaries, and overall conclusion standard.
 - **Program design** is the current cross-Cycle contract: numerical choices, data strategy, model representation, objectives, and other frozen defaults. Every consequential design item includes a literature map explaining why a source applies and where it does not.
+- **Baseline** is a reusable comparison coordinate that keeps the authoritative source setup,
+  paper-reported or digitized data, project solver reproduction, and clearly labelled setup
+  extensions. It always publishes raw numeric output together with inspectable figures.
 - **Cycle** reduces one primary uncertainty while changing one main variable.
 - **Experiment** is a reproducible run with configuration, inputs, code identity, resources, and output manifest.
 - **Evidence** is an observation capable of changing a research decision, including negative and failed outcomes.
@@ -30,6 +33,7 @@ user idea
   -> critical exploration + literature
   -> rough Program design
   -> user approval
+  -> reusable Baseline extraction/reproduction when needed
   -> Cycle contract + deliverables
   -> user approval
   -> execution + live Evidence + diagnosis
@@ -51,6 +55,7 @@ This is a semantic capability rule, not a dependency on one vendor's subagent AP
 | Workflow | May write | May not write |
 |---|---|---|
 | Explore | unapproved drafts when requested | Cycle execution or canonical design |
+| Build Baseline | one approved reusable Baseline, raw outputs, and figures | Cycle Evidence or canonical design |
 | Propose Cycle | coherent Cycle contract and deliverables | running state or Evidence |
 | Run Cycle | approved Cycle artifacts and results | canonical Program design |
 | Update Design | approved canonical design revision | experiment outputs or reinterpretation |

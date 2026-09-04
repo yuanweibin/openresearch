@@ -2,6 +2,8 @@ schema_version: 0.1.0
 workflow_version: 0.1.0
 report_interval: 30m
 cycle_directory: openresearch/cycles
+baseline_directory: openresearch/baselines
 design_directory: openresearch/design
 require_cycle_approval: true
+require_baseline_plan_approval: true
 require_design_promotion_approval: true

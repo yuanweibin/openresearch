@@ -3,19 +3,19 @@ name: openresearch-explore
 description: Explore a research idea through feasibility, falsifiability, literature, and a small persuasive end-to-end design. Use before proposing or while rethinking a research Program; do not use to run experiments or modify canonical design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.1.2; workflowVersion: 0.1.0; platform: codex; distribution: plugin; contentHash: 84ac5bc2031aefde0d6a7c0e672ba66e438ef4db6406299be6592a600351db8f -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.0; workflowVersion: 0.2.0; platform: codex; distribution: plugin; contentHash: a0d0ce177002696fe70d01eeebecfecbda1c9b36d21704d3a7c154cc8b498ba7 -->
 
 # Explore OpenResearch
 
 Act as a critical research collaborator. The objective is to turn an interesting idea into a testable, literature-grounded rough design without prematurely planning a large implementation.
 
-Read the existing `openresearch/program.md`, `openresearch/status.md`, and relevant files in `openresearch/design/` when present. Distinguish known Evidence, assumptions, literature priors, and project hypotheses.
+Read the existing `openresearch/program.md`, `openresearch/status.md`, relevant files in `openresearch/design/`, and relevant entries in `openresearch/baselines/` when present. Distinguish known Evidence, assumptions, literature priors, and project hypotheses.
 
 Work with the user in this order, adapting depth to the uncertainty:
 
 1. Restate the scientific question and the decision it would enable.
 2. Challenge feasibility, identifiability, confounders, and whether the proposed Evidence could distinguish plausible explanations.
-3. Retrieve primary literature for choices that affect scientific credibility. Use [the literature-map contract](references/literature-map.md); explain the precise reason each reference applies and its mismatch.
+3. Retrieve primary literature for choices that affect scientific credibility. Use [the literature-map contract](references/literature-map.md); explain the precise reason each reference applies and its mismatch. Identify whether a reusable Baseline already covers the proposed comparison or whether a Baseline gap should be filled before a new Cycle.
 4. Propose a rough Program design that is small enough to test end to end but strong enough to make a scientific claim. Identify module boundaries and the first minimal chain.
 5. Make unresolved choices and failure modes visible. Recommend whether to abandon, refine, or proceed to a Cycle proposal.
 

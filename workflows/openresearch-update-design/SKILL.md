@@ -16,7 +16,7 @@ If approval is absent, ambiguous, or applies to a different revision, do not mod
 
 When approved:
 
-1. verify the cited Cycle Evidence and disclose anomalies, contradictory Evidence, scope, and consumer eligibility;
+1. verify the cited Cycle and/or Baseline Evidence and disclose anomalies, contradictory Evidence, scope, and consumer eligibility;
 2. update only the affected design contracts while preserving unrelated frozen decisions;
 3. maintain item-level literature maps, including precise match and deviation fields and links to local Evidence;
 4. advance the Program design revision exactly once and update `openresearch/design/README.md`;

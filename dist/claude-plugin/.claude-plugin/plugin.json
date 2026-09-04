@@ -1,7 +1,7 @@
 {
   "name": "openresearch",
-  "version": "0.1.2",
-  "description": "Evidence-driven scientific research cycles with explicit approval and design promotion boundaries.",
+  "version": "0.2.0",
+  "description": "Evidence-driven scientific research with reusable Baselines, focused Cycles, and explicit design promotion boundaries.",
   "author": {
     "name": "Yuan Weibin",
     "url": "https://github.com/yuanweibin"

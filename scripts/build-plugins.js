@@ -15,7 +15,7 @@ function buildCodex() {
   const manifest = {
     name: "openresearch",
     version: PACKAGE_VERSION,
-    description: "Evidence-driven scientific research cycles with explicit approval and design promotion boundaries.",
+    description: "Evidence-driven scientific research with reusable Baselines, focused Cycles, and explicit design promotion boundaries.",
     author: {
       name: "Yuan Weibin",
       url: "https://github.com/yuanweibin",
@@ -27,14 +27,15 @@ function buildCodex() {
     skills: "./skills/",
     interface: {
       displayName: "OpenResearch",
-      shortDescription: "Evidence-driven scientific research cycles",
-      longDescription: "Explore research ideas, approve focused Cycle contracts, execute with durable Evidence, and promote only approved design deltas.",
+      shortDescription: "Evidence-driven research Baselines and Cycles",
+      longDescription: "Explore research ideas, build traceable literature Baselines, approve focused Cycle contracts, execute with durable Evidence, and promote only approved design deltas.",
       developerName: "Yuan Weibin",
       category: "Productivity",
       capabilities: ["Research", "Write"],
       websiteURL: "https://github.com/yuanweibin/openresearch",
       defaultPrompt: [
         "Explore whether this research idea is feasible.",
+        "Build a reusable Baseline from this paper.",
         "Propose the next evidence-driven research Cycle.",
         "Summarize the active Cycle and its next decision.",
       ],
@@ -61,7 +62,7 @@ function buildClaude() {
   const manifest = {
     name: "openresearch",
     version: PACKAGE_VERSION,
-    description: "Evidence-driven scientific research cycles with explicit approval and design promotion boundaries.",
+    description: "Evidence-driven scientific research with reusable Baselines, focused Cycles, and explicit design promotion boundaries.",
     author: {
       name: "Yuan Weibin",
       url: "https://github.com/yuanweibin",

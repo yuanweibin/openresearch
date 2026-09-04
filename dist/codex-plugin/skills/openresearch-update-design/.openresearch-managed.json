@@ -1,15 +1,16 @@
 {
   "generatedBy": "openresearch",
-  "packageVersion": "0.1.2",
-  "workflowVersion": "0.1.0",
-  "canonicalContentHash": "41c2c81b0d3a72113771534705d97e1f0cd01f632bc2665d7e3dbc31f1d5e132",
+  "packageVersion": "0.2.0",
+  "workflowVersion": "0.2.0",
+  "canonicalContentHash": "4ce1af24ba8c51ed3638a34122d7c994a3bd2025980e3a2f6b1167ec0ed06f50",
   "platform": "codex",
   "distribution": "plugin",
   "skill": "openresearch-update-design",
   "files": {
-    "SKILL.md": "599761f1230f457252b4c98031c314d93d02b845100d917ef437c6e388e242e9",
-    "references/artifact-contract.md": "82b1c099c289caead2891760e08835aa2a40b5ac2b6bbcef58032a2a211b6333",
-    "references/authority.md": "9fac6aa0f0974bd113cb47f3754555a891f68fef92fd94983235728c49b9a128",
+    "SKILL.md": "4303dd33bb59d682998388322aeac425c9f6e83c76d1d63cb0589073b27735e9",
+    "references/artifact-contract.md": "c1053e94fb55bf9ad129d89447582496f0c5f0203a25c62350573153650afa33",
+    "references/authority.md": "762a9cd0aa6640cd7bc53309ba3e0e449b0210cf0f2088441c56163b5f825fc7",
+    "references/baseline-contract.md": "efca8ebc585254bac6a86b0a099550b9bc356243e1b49dc92d6c81230ff1b34e",
     "references/cycle-template.md": "d97be44ede09ed0c7647ec47f500a9bab4cd9f886cf5c46279365ce4f149c307",
     "references/literature-map.md": "75292263372d69e960f1b3d8a4b96b9cf8fbdc833600ba5edac6f60b8254b233"
   }

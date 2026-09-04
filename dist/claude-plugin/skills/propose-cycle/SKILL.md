@@ -3,7 +3,7 @@ name: propose-cycle
 description: Create or coherently revise one OpenResearch Cycle contract, tasks, and user-reviewable deliverables around a single scientific uncertainty. Use when the user wants the next experiment planned; stop before execution until deliverables are explicitly approved.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.1.2; workflowVersion: 0.1.0; platform: claude; distribution: plugin; contentHash: 60f79eb5d91123f6cc8801384b7a30febec01527c2ef2e9716442b5cfb3b60b7 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.0; workflowVersion: 0.2.0; platform: claude; distribution: plugin; contentHash: 9f42b546408fdafb0147688a51c9b5766e60184074e9b34a42efd9062057b366 -->
 
 # Propose an OpenResearch Cycle
 
@@ -28,6 +28,8 @@ The contract must:
 - name compute/data assumptions without turning resource availability into a scientific rationale;
 - tie consequential settings to item-level literature evidence or mark them `project-hypothesis`;
 - make every required deliverable inspectable at a named path with a readiness condition.
+- identify every consumed Baseline by stable ID/revision or hash, its eligibility, and the exact
+  setup match; do not make the Cycle silently rebuild a reusable literature benchmark.
 
 Use two-level tasks only where the boundary helps another agent resume without repeating long work. Keep repeated rounds in a live ledger.
 

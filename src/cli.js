@@ -8,14 +8,14 @@ const HELP = `OpenResearch — evidence-driven research cycles
 Usage:
   openresearch init [--tools codex,claude] [--root PATH] [--json]
   openresearch status [--root PATH] [--json]
-  openresearch validate [--cycle ID] [--root PATH] [--json]
+  openresearch validate [--cycle ID | --baseline ID] [--root PATH] [--json]
   openresearch update [--tools codex,claude] [--root PATH] [--json]
   openresearch doctor [--root PATH] [--json]
   openresearch --version
 `;
 
 function parseArguments(argv) {
-  const options = { json: false, root: process.cwd(), tools: null, cycle: null };
+  const options = { json: false, root: process.cwd(), tools: null, cycle: null, baseline: null };
   let command = null;
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
@@ -23,7 +23,7 @@ function parseArguments(argv) {
     if (value === "--version" || value === "-v") return { command: "version", options };
     if (value === "--json") {
       options.json = true;
-    } else if (value === "--root" || value === "--tools" || value === "--cycle") {
+    } else if (value === "--root" || value === "--tools" || value === "--cycle" || value === "--baseline") {
       const next = argv[index + 1];
       if (!next || next.startsWith("--")) throw new Error(`${value} requires a value`);
       options[value.slice(2)] = next;
@@ -34,6 +34,8 @@ function parseArguments(argv) {
       options.tools = value.slice("--tools=".length);
     } else if (value.startsWith("--cycle=")) {
       options.cycle = value.slice("--cycle=".length);
+    } else if (value.startsWith("--baseline=")) {
+      options.baseline = value.slice("--baseline=".length);
     } else if (value.startsWith("-")) {
       throw new Error(`Unknown option: ${value}`);
     } else if (!command) {
@@ -44,6 +46,9 @@ function parseArguments(argv) {
   }
   options.root = path.resolve(options.root);
   options.tools = normalizeTools(options.tools);
+  if (options.cycle && options.baseline) {
+    throw new Error("--cycle and --baseline are mutually exclusive");
+  }
   return { command: command ?? "help", options };
 }
 
@@ -77,11 +82,15 @@ function humanStatus(result) {
   const lines = [
     `Program design: ${result.programDesignRevision ?? "unknown"} (${result.designApproval ?? "unknown"})`,
     `Active Cycles: ${result.activeCycles.length}`,
+    `Baselines: ${result.baselines.length}`,
   ];
   for (const cycle of result.activeCycles) {
     lines.push(
       `- ${cycle.id}: ${cycle.executionState}/${cycle.scientificState}; approval=${cycle.approval}; owner=${cycle.owner ?? "unassigned"}`,
     );
+  }
+  for (const baseline of result.baselines) {
+    lines.push(`- Baseline ${baseline.id}: ${baseline.state}; reference=${baseline.reference ?? "unrecorded"}`);
   }
   lines.push(`Next legal action: ${result.nextLegalAction ?? "not recorded"}`);
   return lines.join("\n");
@@ -134,7 +143,7 @@ export async function main(argv) {
     return;
   }
   if (command === "validate") {
-    const result = validateProject(options.root, options.cycle);
+    const result = validateProject(options.root, options.cycle, options.baseline);
     emit(result, options.json, humanValidation);
     if (!result.valid) process.exitCode = 1;
     return;
