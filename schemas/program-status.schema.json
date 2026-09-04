@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yuanweibin/openresearch/schemas/program-status.schema.json",
+  "title": "OpenResearch Program status frontmatter",
+  "type": "object",
+  "required": [
+    "artifact",
+    "schema_version",
+    "program_design_revision",
+    "active_cycles",
+    "next_legal_action",
+    "updated_at"
+  ],
+  "properties": {
+    "artifact": { "const": "program-status" },
+    "schema_version": { "const": "0.1.0" },
+    "program_design_revision": { "type": "string", "minLength": 1 },
+    "active_cycles": { "type": "array", "items": { "type": "string" } },
+    "owner": { "type": ["string", "null"] },
+    "next_legal_action": { "type": "string", "minLength": 1 },
+    "updated_at": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}

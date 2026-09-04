@@ -1,0 +1,42 @@
+{
+  "name": "openresearch",
+  "version": "0.1.0",
+  "description": "Evidence-driven research cycles for Codex and Claude Code",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Yuan Weibin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanweibin/openresearch.git"
+  },
+  "homepage": "https://github.com/yuanweibin/openresearch#readme",
+  "keywords": [
+    "research",
+    "agent-skills",
+    "codex",
+    "claude-code",
+    "scientific-workflow"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "openresearch": "./bin/openresearch.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "workflows/",
+    "templates/",
+    "schemas/",
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build-plugins.js",
+    "test": "node --test",
+    "prepack": "npm run build && npm test"
+  }
+}

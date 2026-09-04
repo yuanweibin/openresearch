@@ -1,0 +1,17 @@
+{
+  "name": "openresearch",
+  "version": "0.1.0",
+  "description": "Evidence-driven scientific research cycles with explicit approval and design promotion boundaries.",
+  "author": {
+    "name": "Yuan Weibin",
+    "url": "https://github.com/yuanweibin"
+  },
+  "homepage": "https://github.com/yuanweibin/openresearch",
+  "repository": "https://github.com/yuanweibin/openresearch",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "science",
+    "agent-skills"
+  ]
+}
