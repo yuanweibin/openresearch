@@ -1,13 +1,13 @@
 {
   "generatedBy": "openresearch",
-  "packageVersion": "0.1.1",
+  "packageVersion": "0.1.2",
   "workflowVersion": "0.1.0",
   "canonicalContentHash": "6a400e669ea002bf75176c0c6cb99f19bcbdfa0403851223526ceb14a89a24db",
   "platform": "codex",
   "distribution": "plugin",
   "skill": "openresearch-run-cycle",
   "files": {
-    "SKILL.md": "d12f4113e2a4b3af720c6e5f0a21ef4d08bc2086a9be5f787ad21db81658b2f0",
+    "SKILL.md": "9c5c6713229b016adb7bdf0d4212e7c3ca9fbe23ab6d40edd44cfe799e0183dd",
     "references/artifact-contract.md": "82b1c099c289caead2891760e08835aa2a40b5ac2b6bbcef58032a2a211b6333",
     "references/authority.md": "9fac6aa0f0974bd113cb47f3754555a891f68fef92fd94983235728c49b9a128",
     "references/cycle-template.md": "d97be44ede09ed0c7647ec47f500a9bab4cd9f886cf5c46279365ce4f149c307",

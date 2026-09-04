@@ -9,13 +9,13 @@ It is deliberately not a renamed software specification process. A successful Cy
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.1.1 init --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.1.2 init --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.1.1
+npm install -g github:yuanweibin/openresearch#v0.1.2
 openresearch init --tools codex,claude
 ```
 
@@ -59,7 +59,7 @@ Package version, workflow version, artifact schema version, and Program design r
 
 ## Native plugin artifacts
 
-`npm run build` generates two views from the same canonical workflow source:
+`npm run generate` generates two views from the same canonical workflow source:
 
 - `dist/codex-plugin/`
 - `dist/claude-plugin/`
