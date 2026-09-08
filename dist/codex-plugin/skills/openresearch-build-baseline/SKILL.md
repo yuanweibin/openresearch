@@ -3,7 +3,7 @@ name: openresearch-build-baseline
 description: Create, extend, or qualify a reusable literature or canonical-model Baseline with source setup, digitized data, solver reproductions, extension runs, raw outputs, and figures. Use for benchmark reproduction work; do not treat it as a hypothesis-driven Cycle.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.0; workflowVersion: 0.2.0; platform: codex; distribution: plugin; contentHash: b45dcf8e825e53e35f37b73c22688f0382e438105dfbf3228eb961adbc0002e1 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.1; workflowVersion: 0.2.1; platform: codex; distribution: plugin; contentHash: b45dcf8e825e53e35f37b73c22688f0382e438105dfbf3228eb961adbc0002e1 -->
 
 # Build an OpenResearch Baseline
 

@@ -44,6 +44,14 @@ user idea
 
 An agent may make the smallest literature-supported Cycle-local exploratory choice when a required detail is missing. It must record the choice as an override and preserve rollback. If the result is stable and non-anomalous, the Cycle proposes a design delta; it never promotes the delta itself.
 
+Before writing a Cycle contract, the proposing agent compares every consequential Cycle setting
+with the frozen items and declared defaults in the current approved Program design. A mismatch is
+not automatically an override: the user must explicitly choose whether it is a one-Cycle test or
+a proposed new default. In the latter case, the design is revised through the Update Design
+approval gate before the Cycle is written. Each completed proposal retains a design-consistency
+matrix so the comparison is reviewable. If canonical design files disagree about the same item,
+the inconsistency is resolved through that same gate rather than hidden by selecting one source.
+
 ## Control plane and execution plane
 
 The main user conversation is the research control plane. On hosts with subagent support, an approved Cycle is delegated to one execution owner, who maintains the live task ledger and artifacts. The main conversation reports milestones, explains scientific implications, and retains authority over changes to the main variable, thresholds, data, case, or resource scope.

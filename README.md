@@ -9,13 +9,13 @@ It is deliberately not a renamed software specification process. A successful Cy
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.2.0 init --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.2.1 init --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.2.0
+npm install -g github:yuanweibin/openresearch#v0.2.1
 openresearch init --tools codex,claude
 ```
 

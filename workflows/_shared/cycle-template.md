@@ -27,7 +27,15 @@ State one primary uncertainty, the discriminating hypothesis, credible alternati
 
 ## `experiment.md`
 
-Record the inherited Program design revision, frozen contracts, one main variable, any experimental override and rollback, methods and controls, Evidence criteria fixed before results, diagnostic branches, stopping rules, resources, provenance requirements, and item-level literature map.
+Start with a design-consistency matrix that records each consequential item, its canonical source
+and value, the Cycle value, its disposition (`inherited`, `explicit-override`, or
+`cycle-local-gap`), and the user decision or other resolution provenance. An
+`explicit-override` also records its control, promotion Evidence, and rollback. Do not leave an
+unresolved mismatch in a materialized Cycle.
+
+Then record the inherited Program design revision, frozen contracts, one main variable, methods
+and controls, Evidence criteria fixed before results, diagnostic branches, stopping rules,
+resources, provenance requirements, and item-level literature map.
 
 ## `deliverables.md`
 
