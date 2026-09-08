@@ -27,7 +27,7 @@ Use a two-digit, monotonically increasing creation sequence: `cycles/01-name/`, 
 Every proposed Cycle contains:
 
 - `question.md`: one primary uncertainty, hypothesis, alternatives, and what the Cycle will not conclude.
-- `experiment.md`: inherited design revision, frozen variables, one main variable, experimental overrides, controls, methods, Evidence criteria, stopping rules, resources, provenance, and literature map.
+- `experiment.md`: inherited design revision, a resolved design-consistency matrix, frozen variables, one main variable, experimental overrides, controls, methods, Evidence criteria, stopping rules, resources, provenance, and literature map.
 - `deliverables.md`: the exact user-reviewable outputs and the condition that makes each deliverable ready.
 - `tasks.md`: two-level stable task IDs where each leaf has an action, artifact or observation, completion/rejection condition, and resume boundary.
 - `status.md`: execution state, scientific state, approval, owner, progress, latest Evidence, next checkpoint, and next legal action.

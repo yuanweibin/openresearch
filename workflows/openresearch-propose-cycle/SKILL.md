@@ -14,6 +14,33 @@ Before writing, read the Program, current status, relevant frozen Program design
 - [literature-map contract](references/literature-map.md)
 - [authority and approval](references/authority.md)
 
+Before creating or revising any Cycle artifact, run a design-consistency preflight against the
+current approved Program design revision. Map every consequential setting in the user's request
+and the proposed experiment to its exact design file/item, then classify it as inherited,
+Cycle-local because the Program design is silent, a deviation from a declared non-frozen default,
+or conflicting with a frozen item. Replacing, relaxing, or bypassing any declared default is a
+mismatch even when the alternative is scientifically reasonable; doing so to a frozen item is a
+conflict. Check all canonical occurrences of the mapped item rather than selecting one convenient
+source. If design files disagree with each other or carry incompatible revision/approval state,
+treat the design itself as unresolved.
+
+Resolve every mismatch before writing files:
+
+- If the user explicitly asks to test the conflicting value for this Cycle only, preserve it as
+  an experimental override with its control, promotion Evidence, and rollback.
+- If the user appears to intend a new cross-Cycle default, or the intended scope is ambiguous,
+  stop before any Cycle file write. Show the exact canonical item, current value, proposed value,
+  and affected Cycle assumption, then ask whether to update the canonical design first through
+  `openresearch-update-design` or keep the change as an explicit Cycle-local override.
+- Do not infer Cycle-local intent from silence or from a request to create the Cycle. If the current
+  design revision is missing, not approved, or internally inconsistent, route to
+  `openresearch-update-design` before proposing a Cycle.
+
+After resolution, put a compact design-consistency matrix in `experiment.md` with the canonical
+source, inherited value, Cycle value, disposition, and resolution provenance. No unresolved
+mismatch may appear in a materialized Cycle. When there is no mismatch, identify the checked
+design revision in the final approval request.
+
 Select the next unused two-digit global sequence. Create or revise the complete Cycle as one coherent unit: `question.md`, `experiment.md`, `deliverables.md`, `tasks.md`, `status.md`, and `decisions.md`. Do not patch one artifact while leaving contradictions in the others.
 
 The contract must:
