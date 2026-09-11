@@ -3,7 +3,7 @@ name: openresearch-explore
 description: Explore a research idea through feasibility, falsifiability, literature, and a small persuasive end-to-end design. Use before proposing or while rethinking a research Program; do not use to run experiments or modify canonical design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: codex; distribution: plugin; contentHash: 6169f56a9df7a646ae39b86dfff706a1267656220679ebfeadd142eb06c18cbd -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.7; workflowVersion: 0.2.7; platform: codex; distribution: plugin; contentHash: 6169f56a9df7a646ae39b86dfff706a1267656220679ebfeadd142eb06c18cbd -->
 
 # Explore OpenResearch
 
