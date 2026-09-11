@@ -1,6 +1,6 @@
 {
   "name": "openresearch",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Evidence-driven research programs, literature baselines, and cycles for Codex and Claude Code",
   "type": "module",
   "private": true,

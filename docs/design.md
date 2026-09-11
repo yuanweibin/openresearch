@@ -12,9 +12,10 @@ Software delivery usually asks whether specified behavior was implemented. Resea
 | pass/fail | supported, refuted, inconclusive, or failed-with-diagnosis |
 | completed change | enough uncertainty reduction to choose the next variable |
 
-The default strategy is to run a small but scientifically real end-to-end case, inspect its output or
-failure, and deepen only the first evidence-supported bottleneck. It is not to validate or
-productionize every module before observing the actual research path.
+The default strategy is to choose the scientifically sufficient end-to-end path with the lowest
+expected total time to decision-bearing Evidence, inspect its output or failure, and deepen only the
+first evidence-supported bottleneck. It is not to minimize the size of one run or productionize every
+module before observing the actual research path.
 
 ## Research objects
 
@@ -48,7 +49,7 @@ user idea
   -> canonical Program design revision
 ```
 
-An agent may make the smallest literature-supported Cycle-local exploratory choice when a required detail is missing. It must record the choice as an override and preserve rollback. If the result is stable and non-anomalous, the Cycle proposes a design delta; it never promotes the delta itself.
+An agent may make the least-assumptive literature-supported Cycle-local exploratory choice when a required detail is missing. It must record the choice as an override and preserve rollback. If the result is stable and non-anomalous, the Cycle proposes a design delta; it never promotes the delta itself.
 
 Before writing a Cycle contract, the proposing agent compares only the settings its real case relies
 on or changes with relevant frozen items in the approved Program design. A clearly labelled deviation
@@ -68,15 +69,22 @@ may require stricter provenance.
 
 ## Validation economy
 
-Validation is not a mandatory stage before research execution. The default is a bounded real vertical
-slice through the actual data, code, model, service, and metric path. Cheap assertions run inside that
-case; observed failures motivate targeted checks and repairs in the same path.
+Validation is not a mandatory stage before research execution. The default is the target-scale real
+path through the actual data, code, model, service, and metric. Cheap assertions run inside that case;
+observed failures motivate targeted checks and repairs in the same path.
 
-A standalone mock, dry run, probe, synthetic case, or environment audit is justified only when it is
-substantially cheaper and exercises the same likely failure, or when it protects against irreversible
-effects, material cost, credential exposure, unsafe execution, source-rights violations, or held-out
-leakage. If validation costs about as much as the real slice or exercises a different path, run the
-real slice.
+A standalone mock, dry run, probe, synthetic case, or environment audit is justified only when it can
+replace or cancel the target run, materially reduce expected failure and rework cost, or protect
+against irreversible effects, material cost, credential exposure, unsafe execution, source-rights
+violations, or held-out leakage. If the target run remains mandatory and no such boundary applies, run
+the target directly.
+
+Expected total time includes development, validation, execution, data transfer, required user
+interaction, reruns, and likely rework. Never insert a smaller pilot when the target run remains
+necessary regardless of the pilot result. Use a pilot only when it can replace or cancel the target
+run, materially reduce expected failure and rework cost, or protect a concrete authorization, safety,
+budget, source-rights, or held-out boundary. Treat a user-selected scale, window, sample, or case as the
+target unless one of those boundaries requires a change.
 
 User time is part of the experimental resource budget, but script count is not the optimization
 target. Local work and remote systems available through API or SSH may use any useful number of
@@ -126,7 +134,7 @@ This prevents “the same Reynolds number” or “a similar architecture” fro
 
 ## Evidence and media
 
-Evidence is qualified for named consumers such as `training-eligible`, `soft-ad-eligible`, or `external-replay-eligible`; a generic producer-side pass is insufficient. Decision-bearing failure artifacts remain serializable and published. Long runs distinguish a bounded real slice, completed trajectory, and scientific qualification.
+Evidence is qualified for named consumers such as `training-eligible`, `soft-ad-eligible`, or `external-replay-eligible`; a generic producer-side pass is insufficient. Decision-bearing failure artifacts remain serializable and published. Long runs distinguish the target-scale real path, completed trajectory, and scientific qualification.
 
 Decision-bearing figures are embedded in Markdown and retained in a scalable format. Videos are used only for genuine evolution, carry a shared visual contract and frame manifest, and do not replace quantitative time-history plots.
 

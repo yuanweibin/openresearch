@@ -10,7 +10,7 @@ Read `openresearch/config.yaml` first. Write all user-facing document prose and 
 schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
 field is missing, ask once and record it before creating further user-facing artifacts.
 
-Turn one primary uncertainty into the smallest convincing experimental contract. A Cycle is not a software milestone and is not required to enumerate every possible future task.
+Turn one primary uncertainty into a focused, convincing experimental contract. A Cycle is not a software milestone and is not required to enumerate every possible future task.
 
 Before writing, read the Program, current status, the design files used by this uncertainty, and
 relevant prior Evidence. Read:
@@ -20,12 +20,14 @@ relevant prior Evidence. Read:
 - [literature-map contract](references/literature-map.md)
 - [authority and approval](references/authority.md)
 
-Design the smallest scientifically real end-to-end case that can change the next decision. Its first
-executable task should exercise the actual data, code, model, service, and metric path at bounded
-scale. Put cheap assertions inside that run. Do not build a ladder of mocks, dry runs, import-only
-jobs, capability probes, or synthetic substitutes unless a standalone check is much cheaper and
-tests the same likely failure, or prevents irreversible effects, material cost, credential exposure,
-unsafe execution, or held-out leakage.
+Design the scientifically sufficient end-to-end path with the lowest expected total time to the next
+decision-bearing Evidence. Count development, validation, execution, data transfer, required user
+interaction, reruns, and likely rework. Its first executable task should exercise the actual data,
+code, model, service, and metric path at the user-selected target scale. Do not reduce that scale or
+insert a smaller pilot when the target run will still be required regardless of the pilot outcome.
+Use a pilot only when it can replace or cancel the target run, materially reduce expected failure and
+rework cost, or protect against irreversible effects, material cost, credential exposure, unsafe
+execution, or held-out leakage. Put cheap assertions inside the target run.
 
 Choose an execution topology before defining tasks:
 
