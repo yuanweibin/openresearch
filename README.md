@@ -1,6 +1,6 @@
 # OpenResearch
 
-OpenResearch is an evidence-driven workflow for research with coding agents. It keeps a small, literature-grounded Program design above reusable Baselines and short experimental Cycles, so the agent can validate a full research chain early, compare against traceable published results, diagnose the first real bottleneck, and change one main variable at a time.
+OpenResearch is an evidence-driven workflow for research with coding agents. It keeps a small, literature-grounded Program design above reusable Baselines and short experimental Cycles, so the agent can run a scientifically real end-to-end case early, compare against traceable published results, diagnose the first real bottleneck, and change one main variable at a time.
 
 It is deliberately not a renamed software specification process. A successful Cycle reduces an important uncertainty; it does not need to complete a backlog.
 
@@ -9,13 +9,13 @@ It is deliberately not a renamed software specification process. A successful Cy
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.2.2 init --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.2.3 init --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.2.2
+npm install -g github:yuanweibin/openresearch#v0.2.3
 openresearch init --tools codex,claude
 ```
 

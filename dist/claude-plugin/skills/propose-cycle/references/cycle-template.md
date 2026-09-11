@@ -27,15 +27,13 @@ State one primary uncertainty, the discriminating hypothesis, credible alternati
 
 ## `experiment.md`
 
-Start with a design-consistency matrix that records each consequential item, its canonical source
-and value, the Cycle value, its disposition (`inherited`, `explicit-override`, or
-`cycle-local-gap`), and the user decision or other resolution provenance. An
-`explicit-override` also records its control, promotion Evidence, and rollback. Do not leave an
-unresolved mismatch in a materialized Cycle.
+Record the inherited Program design revision, the frozen items the real case actually relies on, and
+any explicit Cycle-local deviation with its promotion Evidence and rollback. A short list is enough;
+do not inventory unrelated settings or require a matrix when there is no material deviation.
 
-Then record the inherited Program design revision, frozen contracts, one main variable, methods
-and controls, Evidence criteria fixed before results, diagnostic branches, stopping rules,
-resources, provenance requirements, and item-level literature map.
+Define the smallest scientifically real end-to-end case, one main variable, minimum useful controls,
+Evidence criteria fixed before results, resource and held-out limits, stopping rules, and only the
+provenance and literature links needed to interpret the result.
 
 ## `deliverables.md`
 
@@ -43,7 +41,11 @@ Each required output names its path, content, readiness condition, and whether i
 
 ## `tasks.md`
 
-Use stable IDs such as `1.1`, `1.2`, `2.1` only where they create genuine resume boundaries. Each leaf records an output and a completion, rejection, or stop condition. Repeated experimental rounds use a ledger rather than speculative duplicated checklists.
+Use stable IDs such as `1.1`, `1.2`, `2.1` only where they create genuine resume boundaries. The first
+executable leaf normally runs the bounded real case. Put cheap checks inside it instead of creating a
+preflight ladder. When the user operates a remote system, make that leaf one complete runnable handoff
+rather than a sequence of uploads and test commands. Each leaf records an output and a completion,
+rejection, or stop condition.
 
 ## `decisions.md`
 
