@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { WORKFLOW_VERSION } from "../src/constants.js";
 
 const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cli = path.join(repository, "bin", "openresearch.js");
@@ -41,6 +42,10 @@ test("Codex-only init installs five project skills and validates", () => {
   }
   assert.equal(fs.existsSync(path.join(root, ".claude")), false);
   assert.equal(fs.existsSync(path.join(root, "openresearch", "baselines", "README.md")), true);
+  const config = fs.readFileSync(path.join(root, "openresearch", "config.yaml"), "utf8");
+  assert.match(config, new RegExp(`^workflow_version: ${WORKFLOW_VERSION}$`, "m"));
+  assert.match(config, /^progress_reporting: event-driven$/m);
+  assert.doesNotMatch(config, /report_interval|require_baseline_plan_approval/);
   const validated = run(root, "validate", "--json");
   assert.equal(validated.status, 0, validated.stdout + validated.stderr);
   assert.equal(JSON.parse(validated.stdout).valid, true);

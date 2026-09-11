@@ -8,7 +8,7 @@ OpenResearch separates discussion, Cycle execution, and canonical design authori
 |---|---|---|
 | `openresearch/program.md` | Researcher | User-directed Program revision |
 | `openresearch/design/` | Canonical Program design | `openresearch-update-design` after explicit user approval |
-| `openresearch/baselines/<id>/` | Reusable comparison Evidence | `openresearch-build-baseline` under an approved coverage plan |
+| `openresearch/baselines/<id>/` | Reusable comparison Evidence | `openresearch-build-baseline`; user approval before broad or expensive expansion |
 | `openresearch/cycles/<id>/` | One Cycle | `openresearch-propose-cycle` while designing; `openresearch-run-cycle` after approval |
 | Generated agent skills | OpenResearch CLI | `openresearch init` or `openresearch update` |
 
@@ -16,9 +16,9 @@ Approval must be attributable to a user message and scoped to a concrete artifac
 
 Before running a Cycle, its `status.md` must record `approval: approved` and an `approved_at` value. Before promoting a Design Delta, the proposal and the user's approval must be identified in `design/decisions.md`.
 
-Before expensive Baseline reproduction or broad figure digitization, `status.md` must identify
-the approved coverage plan and approval provenance. Lightweight source inspection may precede
-that gate. Baseline qualification never authorizes a Cycle to rewrite it.
+Before expensive Baseline reproduction or broad figure digitization, `status.md` must identify the
+approved expansion scope and approval provenance. A bounded real slice inside the user's existing
+scope may run before that gate. Baseline qualification never authorizes a Cycle to rewrite it.
 
 If the user changes the Cycle while it is running, record the decision before the next Evidence boundary. Changes to the main variable, scientific thresholds, data, case, or resource scope require renewed approval. Recoverable engineering changes that preserve the frozen contract do not.
 

@@ -46,17 +46,15 @@ user idea
 
 An agent may make the smallest literature-supported Cycle-local exploratory choice when a required detail is missing. It must record the choice as an override and preserve rollback. If the result is stable and non-anomalous, the Cycle proposes a design delta; it never promotes the delta itself.
 
-Before writing a Cycle contract, the proposing agent compares every consequential Cycle setting
-with the frozen items and declared defaults in the current approved Program design. A mismatch is
-not automatically an override: the user must explicitly choose whether it is a one-Cycle test or
-a proposed new default. In the latter case, the design is revised through the Update Design
-approval gate before the Cycle is written. Each completed proposal retains a design-consistency
-matrix so the comparison is reviewable. If canonical design files disagree about the same item,
-the inconsistency is resolved through that same gate rather than hidden by selecting one source.
+Before writing a Cycle contract, the proposing agent compares only the settings its real case relies
+on or changes with relevant frozen items in the approved Program design. A clearly labelled deviation
+in the proposed contract becomes Cycle-local when the user approves that complete contract. Ask a
+separate scope question only when the user may intend a new cross-Cycle default or canonical design
+files conflict. Canonical promotion still uses the Update Design approval gate.
 
 ## Control plane and execution plane
 
-The main user conversation is the research control plane. On hosts with subagent support, an approved Cycle is delegated to one execution owner, who maintains Cycle state and artifacts. The main conversation reports milestones, explains scientific implications, and retains authority over changes to the main variable, thresholds, data, case, or resource scope.
+The main user conversation is the research control plane. Every approved Cycle has one execution owner, who maintains Cycle state and artifacts. Delegate only when long-running or parallel work materially benefits. The main conversation reports milestones, explains scientific implications, and retains authority over changes to the main variable, thresholds, data, case, or resource scope.
 
 Execution records are transition-based rather than activity-based. Scripts and manifests retain routine
 commands, retries, and engineering failures. Human-readable Cycle files change only when task state,
@@ -84,7 +82,7 @@ access and reduction stay near the data; compact outputs move to the environment
 analysis can iterate fastest. Approval, resource limits, and held-out isolation may require separate
 phases. Optional documentation is completed while remote work runs or waits in a queue.
 
-This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support may execute in a declared degraded mode while preserving the same approval and artifact boundaries.
+This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support follows the same approval and Evidence boundaries without treating ordinary single-agent execution as degraded.
 
 ## Write authority
 

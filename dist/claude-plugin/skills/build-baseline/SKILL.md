@@ -3,7 +3,7 @@ name: build-baseline
 description: Build or extend a reusable literature or canonical-model Baseline by running the smallest claim-bearing real reproduction first, then deepen it as evidence warrants. Use for benchmark reproduction work; do not treat it as a hypothesis-driven Cycle.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.4; workflowVersion: 0.2.4; platform: claude; distribution: plugin; contentHash: f76ae6e2ec42ab747678a0018a3989f5927da594997c7ec0fa66e2ea23216672 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: f76ae6e2ec42ab747678a0018a3989f5927da594997c7ec0fa66e2ea23216672 -->
 
 # Build an OpenResearch Baseline
 
