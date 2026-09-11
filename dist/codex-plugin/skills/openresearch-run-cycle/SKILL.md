@@ -1,33 +1,56 @@
 ---
 name: openresearch-run-cycle
-description: Execute an explicitly approved OpenResearch Cycle, continuously publish Evidence, diagnose the first supported bottleneck, and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
+description: Execute an explicitly approved OpenResearch Cycle with lightweight, decision-focused Evidence capture; diagnose the first supported bottleneck and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.1; workflowVersion: 0.2.1; platform: codex; distribution: plugin; contentHash: cc9d5605e820c7b6bf31edd4b29c80b9acb5f1db548a02a654deb2b9bf41ec56 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.2; workflowVersion: 0.2.2; platform: codex; distribution: plugin; contentHash: 64239c82c4b87a89a0b9593b8df928fd328ee3611e55124fe38cfe2b3c4b41dc -->
 
 # Run an OpenResearch Cycle
 
-Execute the approved scientific contract while preserving the user's research control plane.
+Execute the approved scientific contract while preserving research momentum and the user's control plane.
 
-Read the complete Cycle, inherited Program design, and:
+Read the Cycle contract and current execution state. Read only the inherited design files named by
+the Cycle, plus:
 
 - [authority and approval](references/authority.md)
-- [artifact contract](references/artifact-contract.md)
+- [artifact contract](references/artifact-contract.md) when publishing or qualifying Evidence
 - [literature-map contract](references/literature-map.md) when a design gap or experimental override appears
 - [Baseline contract](references/baseline-contract.md) when the Cycle consumes a literature or
   canonical-model comparison
 
 Do not start unless `status.md` records explicit user approval of the current deliverables and contract. If approval is missing or the artifacts disagree, stop and report the exact gate.
 
-When the host supports subagents, delegate execution to one clearly named Cycle owner and keep the main conversation available for scientific discussion and progress reports. The owner may coordinate workers or devices but is the sole writer of the live ledger. If delegation is unavailable, state the degraded mode and preserve the same artifact and reporting contract.
+Use one clearly named Cycle owner. Delegate only when long-running or parallel execution materially
+benefits; do not create coordination work solely to satisfy the protocol. The owner is the sole writer
+of Cycle state.
 
-At launch, record owner, commands, environment, inputs, hashes, resources, and the next Evidence checkpoint. Update `status.md`, `tasks.md`, and `decisions.md` at durable artifact boundaries. Report immediately when Evidence becomes ready, a stop condition fires, a frozen choice must change, or an unrecoverable block appears; otherwise use the configured heartbeat interval.
+At launch, set the owner and next Evidence checkpoint. Capture commands, code and input identity,
+seeds, material environment details, and resource use in machine-readable run metadata or raw-output
+manifests. Exact hashes are required only when identity affects reproducibility, safety, or downstream
+eligibility.
+
+Human-readable records are transition-based:
+
+- update `status.md` only when the macro execution or scientific state, latest decision-bearing
+  Evidence, next checkpoint, or next legal action changes;
+- update a `tasks.md` leaf only when its state or resume boundary changes; do not append a diary of
+  retries, polling, or unchanged progress;
+- write `decisions.md` only for deviations, anomalies, or choices that affect the frozen contract,
+  scientific interpretation, consumer eligibility, or safe resumption;
+- update `results/report.md` when Evidence becomes decision-ready, a stop is diagnosed, or the Cycle
+  concludes; and
+- never duplicate an event across files. Use chat for progress; unchanged state causes no file edit.
+
+Let scripts write raw outputs, manifests, and routine engineering logs. Authentication, queueing,
+transport, retries, and recoverable faults stay there unless they change a stop condition, Evidence
+validity, or safe resumption. Create a separate failed, partial, rejected, or non-finite Evidence
+artifact only when it bears on a scientific decision or diagnosis.
 
 Treat consumed Baselines as read-only and verify their named consumer eligibility plus exact
 revision or artifact hash. Keep candidate-specific outputs in the Cycle. If a run becomes a
 reusable reference, propose a separate Baseline update instead of silently moving it.
 
-Within a frozen contract, repair recoverable engineering faults and resume from published checkpoints. Do not silently change the main variable, data/case, scientific thresholds, or resource scope. Preserve failed, rejected, partial, and non-finite outcomes as serializable Evidence.
+Within a frozen contract, repair recoverable engineering faults and resume from published checkpoints. Do not silently change the main variable, data/case, scientific thresholds, or resource scope.
 
 If the Program design omitted an implementation choice needed by this Cycle, make the smallest literature-supported exploratory choice, label it as a Cycle-local override, record alternatives and rollback, and test it inside this Cycle. An unexpected result triggers diagnosis before expansion.
 

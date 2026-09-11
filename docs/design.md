@@ -54,7 +54,13 @@ the inconsistency is resolved through that same gate rather than hidden by selec
 
 ## Control plane and execution plane
 
-The main user conversation is the research control plane. On hosts with subagent support, an approved Cycle is delegated to one execution owner, who maintains the live task ledger and artifacts. The main conversation reports milestones, explains scientific implications, and retains authority over changes to the main variable, thresholds, data, case, or resource scope.
+The main user conversation is the research control plane. On hosts with subagent support, an approved Cycle is delegated to one execution owner, who maintains Cycle state and artifacts. The main conversation reports milestones, explains scientific implications, and retains authority over changes to the main variable, thresholds, data, case, or resource scope.
+
+Execution records are transition-based rather than activity-based. Scripts and manifests retain routine
+commands, retries, and engineering failures. Human-readable Cycle files change only when task state,
+the safe resume boundary, scientific interpretation, Evidence eligibility, or the next legal action
+changes. Scouting and feasibility work use this lightweight default; expensive or claim-bearing runs
+may require stricter provenance.
 
 This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support may execute in a declared degraded mode while preserving the same approval and artifact boundaries.
 
