@@ -35,6 +35,22 @@ Every proposed Cycle contains:
 
 During execution, publish results below `results/`. Keep `results/report.md` as the decision-oriented report and version-controlled figures, previews, and manifests under `results/assets/`.
 
+## Execution recording policy
+
+The Cycle contract is comprehensive before approval; the live execution record is intentionally
+sparse. Record state transitions and decision-bearing Evidence, not a prose transcript of tool calls.
+
+- `status.md` is the current macro state, not an event log.
+- `tasks.md` changes when a leaf state or resume boundary changes, not after each retry or poll.
+- `decisions.md` contains scientifically or operationally consequential choices and anomalies, not
+  routine engineering activity.
+- `results/report.md` is updated at decision boundaries, not continuously.
+- Machine-generated logs and manifests hold commands, routine failures, timestamps, and file-level
+  provenance. Link them rather than duplicating their contents in Markdown.
+
+Escalate recording detail for expensive, claim-bearing, externally consumed, or user-designated
+strict runs. Use the lightweight policy by default for scouting and feasibility work.
+
 ## State semantics
 
 Execution state is one of `designed`, `running`, `evidence-ready`, `diagnosed`, `blocked`, or `complete`. Scientific state is separate: `pending`, `supported`, `refuted`, `inconclusive`, or `failed-with-diagnosis`.
@@ -47,7 +63,11 @@ Execution state is one of `designed`, `running`, `evidence-ready`, `diagnosed`, 
 
 ## Evidence requirements
 
-Evidence must retain command/configuration, seed where relevant, code identity or `unavailable`, input hashes, resource use, and output manifests. Failed and non-finite outcomes are evidence and must remain serializable and inspectable.
+Decision-bearing Evidence must retain enough provenance to reproduce the conclusion: command and
+configuration, seed where relevant, material code and input identity, resource use when consequential,
+and an output manifest. Exact hashes are required when identity affects the conclusion, safety, or a
+named downstream consumer. Failed and non-finite outcomes that affect a decision or diagnosis must
+remain serializable and inspectable; routine failed attempts may remain in machine logs.
 
 When an artifact is consumed downstream, qualify it for that named consumer rather than recording a generic pass. A producer-only schema check is insufficient.
 

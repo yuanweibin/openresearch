@@ -7,7 +7,7 @@ export const PACKAGE_JSON = JSON.parse(
   fs.readFileSync(path.join(PACKAGE_ROOT, "package.json"), "utf8"),
 );
 export const PACKAGE_VERSION = PACKAGE_JSON.version;
-export const WORKFLOW_VERSION = "0.2.1";
+export const WORKFLOW_VERSION = "0.2.2";
 export const SCHEMA_VERSION = "0.1.0";
 
 export const SKILLS = [
