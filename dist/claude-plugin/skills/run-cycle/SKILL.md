@@ -3,7 +3,7 @@ name: run-cycle
 description: Execute an explicitly approved OpenResearch Cycle with lightweight, decision-focused Evidence capture; diagnose the first supported bottleneck and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.4; workflowVersion: 0.2.4; platform: claude; distribution: plugin; contentHash: 8ed67384785f6b574eaedc717efbd30652a05c4327af60b4f8ec987b1e645195 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: 8ed67384785f6b574eaedc717efbd30652a05c4327af60b4f8ec987b1e645195 -->
 
 # Run an OpenResearch Cycle
 

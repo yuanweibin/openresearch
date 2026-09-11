@@ -13,8 +13,8 @@ Cycle sequence for Baselines.
 Every Baseline contains:
 
 - `README.md`: purpose, citation, scope, current coverage, and consumer links;
-- `source.md`: source access, exact published setup, equations, metrics, and figure/table inventory;
-- `setup.md`: executable reproduction contract plus an item-level match/deviation matrix;
+- `source.md`: source access and the claim-bearing setup, equations, metrics, and results currently in scope; expand it as coverage grows;
+- `setup.md`: executable mapping for the current real slice; record additional match/deviation detail when it affects interpretation and complete material coverage before external qualification;
 - `runs.md`: append-only registry of paper-reported, solver-reproduction, and setup-extension runs;
 - `status.md`: state, owner, approved plan, coverage, eligibility, latest evidence, and next action;
 - `results/report.md` once any result is published;

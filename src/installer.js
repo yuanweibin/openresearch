@@ -102,6 +102,7 @@ function copyTemplates(projectRoot) {
   const destinationRoot = path.join(projectRoot, "openresearch");
   const replacements = {
     "{{DATE}}": today(),
+    "{{WORKFLOW_VERSION}}": WORKFLOW_VERSION,
   };
   const created = [];
   const preserved = [];

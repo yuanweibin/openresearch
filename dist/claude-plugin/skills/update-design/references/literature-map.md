@@ -1,8 +1,13 @@
 # Literature map
 
 Literature is part of the design rationale, not a bibliography appended after decisions are made.
+Use a full literature-map record only for a choice that materially affects the core scientific
+interpretation or numerical comparison, will be reused across Cycles, is proposed for canonical
+design, or has an important deviation from its source. For an exploratory parameter that does not
+change the claim, keep only a concise citation and reason or label it `project-hypothesis`; do not
+build an item-by-item matrix.
 
-For each design item that affects scientific interpretation, numerical comparability, model capability, or an Evidence threshold, record:
+For each choice that meets the full-record threshold, record:
 
 | Field | Meaning |
 |---|---|
