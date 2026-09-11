@@ -3,9 +3,14 @@ name: update-design
 description: Establish the first user-approved OpenResearch Program design or promote an explicitly approved Cycle Design Delta into a new canonical revision. This is the sole workflow allowed to modify openresearch/design/ and it does not run experiments.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: 4ce1af24ba8c51ed3638a34122d7c994a3bd2025980e3a2f6b1167ec0ed06f50 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: claude; distribution: plugin; contentHash: 7f12fd5f1922c1c877e076e2095232ef270f450e75e0fb6b0cb60ffd0ddeadd9 -->
 
 # Update OpenResearch Design
+
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
 
 Maintain the canonical, cross-Cycle research design without turning every experimental observation into a new default.
 

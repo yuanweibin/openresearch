@@ -29,7 +29,7 @@ function assertSkill(root, toolDirectory, name) {
 
 test("Codex-only init installs five project skills and validates", () => {
   const root = workspace();
-  const initialized = run(root, "init", "--tools", "codex", "--json");
+  const initialized = run(root, "init", "--language", "en", "--tools", "codex", "--json");
   assert.equal(initialized.status, 0, initialized.stderr);
   for (const name of [
     "openresearch-explore",
@@ -44,6 +44,7 @@ test("Codex-only init installs five project skills and validates", () => {
   assert.equal(fs.existsSync(path.join(root, "openresearch", "baselines", "README.md")), true);
   const config = fs.readFileSync(path.join(root, "openresearch", "config.yaml"), "utf8");
   assert.match(config, new RegExp(`^workflow_version: ${WORKFLOW_VERSION}$`, "m"));
+  assert.match(config, /^user_language: en$/m);
   assert.match(config, /^progress_reporting: event-driven$/m);
   assert.doesNotMatch(config, /report_interval|require_baseline_plan_approval/);
   const validated = run(root, "validate", "--json");
@@ -51,21 +52,63 @@ test("Codex-only init installs five project skills and validates", () => {
   assert.equal(JSON.parse(validated.stdout).valid, true);
 });
 
+test("init requires a supported user language and localizes templates", () => {
+  const missingRoot = workspace();
+  const missing = run(missingRoot, "init", "--tools", "codex");
+  assert.notEqual(missing.status, 0);
+  assert.match(missing.stderr, /init requires --language en or zh-CN/);
+
+  const unsupportedRoot = workspace();
+  const unsupported = run(unsupportedRoot, "init", "--language", "fr", "--tools", "codex");
+  assert.notEqual(unsupported.status, 0);
+  assert.match(unsupported.stderr, /Unsupported --language fr/);
+
+  const chineseRoot = workspace();
+  const initialized = run(
+    chineseRoot,
+    "init",
+    "--language",
+    "zh-CN",
+    "--tools",
+    "codex",
+    "--json",
+  );
+  assert.equal(initialized.status, 0, initialized.stderr);
+  assert.equal(JSON.parse(initialized.stdout).userLanguage, "zh-CN");
+  const config = fs.readFileSync(path.join(chineseRoot, "openresearch", "config.yaml"), "utf8");
+  const program = fs.readFileSync(path.join(chineseRoot, "openresearch", "program.md"), "utf8");
+  assert.match(config, /^user_language: zh-CN$/m);
+  assert.match(program, /^# 研究计划$/m);
+  assert.doesNotMatch(program, /^# Research Program$/m);
+
+  const mismatched = run(chineseRoot, "init", "--language", "en", "--tools", "codex");
+  assert.notEqual(mismatched.status, 0);
+  assert.match(mismatched.stderr, /Existing project language is zh-CN/);
+
+  fs.writeFileSync(
+    path.join(chineseRoot, "openresearch", "config.yaml"),
+    config.replace(/^user_language:.*\n/m, ""),
+  );
+  const invalid = run(chineseRoot, "validate", "--json");
+  assert.notEqual(invalid.status, 0);
+  assert.match(invalid.stdout, /missing-user-language/);
+});
+
 test("Claude-only and dual init use the expected discovery paths", () => {
   const claude = workspace();
-  assert.equal(run(claude, "init", "--tools", "claude").status, 0);
+  assert.equal(run(claude, "init", "--language", "en", "--tools", "claude").status, 0);
   assertSkill(claude, ".claude", "openresearch-explore");
   assert.equal(fs.existsSync(path.join(claude, ".agents")), false);
 
   const dual = workspace();
-  assert.equal(run(dual, "init", "--tools", "codex,claude").status, 0);
+  assert.equal(run(dual, "init", "--language", "en", "--tools", "codex,claude").status, 0);
   assertSkill(dual, ".agents", "openresearch-run-cycle");
   assertSkill(dual, ".claude", "openresearch-run-cycle");
 });
 
 test("repeated init preserves researcher-owned artifacts", () => {
   const root = workspace();
-  assert.equal(run(root, "init", "--tools", "codex,claude").status, 0);
+  assert.equal(run(root, "init", "--language", "en", "--tools", "codex,claude").status, 0);
   const program = path.join(root, "openresearch", "program.md");
   const custom = `${fs.readFileSync(program, "utf8")}\nResearcher-owned sentinel.\n`;
   fs.writeFileSync(program, custom);
@@ -76,7 +119,7 @@ test("repeated init preserves researcher-owned artifacts", () => {
   const evidence = path.join(cycle, "results", "evidence.txt");
   fs.writeFileSync(evidence, "researcher evidence sentinel\n");
 
-  const repeated = run(root, "init", "--tools", "codex,claude", "--json");
+  const repeated = run(root, "init", "--language", "en", "--tools", "codex,claude", "--json");
   assert.equal(repeated.status, 0, repeated.stderr);
   assert.equal(fs.readFileSync(program, "utf8"), custom);
   assert.equal(fs.readFileSync(design, "utf8"), "researcher design sentinel\n");
@@ -93,7 +136,7 @@ test("repeated init preserves researcher-owned artifacts", () => {
 
 test("update refuses to overwrite a locally modified managed skill", () => {
   const root = workspace();
-  assert.equal(run(root, "init", "--tools", "codex").status, 0);
+  assert.equal(run(root, "init", "--language", "en", "--tools", "codex").status, 0);
   const skill = path.join(
     root,
     ".agents",
@@ -110,7 +153,7 @@ test("update refuses to overwrite a locally modified managed skill", () => {
 
 test("status reports a valid empty Program", () => {
   const root = workspace();
-  assert.equal(run(root, "init", "--tools", "codex").status, 0);
+  assert.equal(run(root, "init", "--language", "en", "--tools", "codex").status, 0);
   const status = run(root, "status", "--json");
   assert.equal(status.status, 0, status.stderr);
   const payload = JSON.parse(status.stdout);
@@ -122,7 +165,7 @@ test("status reports a valid empty Program", () => {
 
 test("partial Baseline requires raw data and a PNG figure", () => {
   const root = workspace();
-  assert.equal(run(root, "init", "--tools", "codex").status, 0);
+  assert.equal(run(root, "init", "--language", "en", "--tools", "codex").status, 0);
   const baseline = path.join(root, "openresearch", "baselines", "tgv-example-2021");
   fs.mkdirSync(path.join(baseline, "results", "raw"), { recursive: true });
   fs.mkdirSync(path.join(baseline, "results", "figures"), { recursive: true });

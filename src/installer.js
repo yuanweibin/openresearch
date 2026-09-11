@@ -6,6 +6,7 @@ import {
   SCHEMA_VERSION,
   SKILLS,
   TOOLS,
+  USER_LANGUAGES,
   WORKFLOW_VERSION,
 } from "./constants.js";
 import { ensureDir, hashFile, listFiles, sha256, today, writeFileAtomic } from "./files.js";
@@ -97,8 +98,9 @@ export function writeManagedSkill(directory, rendered, metadata) {
   return prior ? "updated" : "installed";
 }
 
-function copyTemplates(projectRoot) {
-  const sourceRoot = path.join(PACKAGE_ROOT, "templates", "openresearch");
+function copyTemplates(projectRoot, userLanguage) {
+  const templateDirectory = userLanguage === "en" ? "openresearch" : `openresearch.${userLanguage}`;
+  const sourceRoot = path.join(PACKAGE_ROOT, "templates", templateDirectory);
   const destinationRoot = path.join(projectRoot, "openresearch");
   const replacements = {
     "{{DATE}}": today(),
@@ -130,6 +132,22 @@ export function normalizeTools(raw) {
   if (invalid.length) throw new Error(`Unknown tool(s): ${invalid.join(", ")}`);
   if (!values.length) throw new Error("--tools requires codex, claude, or both");
   return values;
+}
+
+export function normalizeLanguage(raw) {
+  if (!raw) return null;
+  const value = raw.trim();
+  const key = value.toLowerCase();
+  if (["en", "en-us", "en-gb", "english"].includes(key)) return "en";
+  if (["zh", "zh-cn", "zh-hans", "chinese", "中文", "简体中文"].includes(key)) return "zh-CN";
+  throw new Error(`Unsupported --language ${value}; supported values: ${USER_LANGUAGES.join(", ")}`);
+}
+
+function existingProjectLanguage(projectRoot) {
+  const configFile = path.join(projectRoot, "openresearch", "config.yaml");
+  if (!fs.existsSync(configFile)) return null;
+  const match = fs.readFileSync(configFile, "utf8").match(/^user_language:\s*(.+?)\s*$/m);
+  return match ? normalizeLanguage(match[1]) : "missing";
 }
 
 export function detectTools(projectRoot) {
@@ -193,12 +211,22 @@ export function installProjectSkills(projectRoot, tools, mode = "init") {
   return outcomes;
 }
 
-export function initProject(projectRoot, requestedTools) {
+export function initProject(projectRoot, requestedTools, userLanguage) {
+  if (!userLanguage) throw new Error("init requires --language en or zh-CN");
+  const existingLanguage = existingProjectLanguage(projectRoot);
+  if (existingLanguage === "missing") {
+    throw new Error("Existing openresearch/config.yaml lacks user_language; add it before re-running init");
+  }
+  if (existingLanguage && existingLanguage !== userLanguage) {
+    throw new Error(
+      `Existing project language is ${existingLanguage}; changing it requires an explicit document migration`,
+    );
+  }
   ensureDir(projectRoot);
-  const templates = copyTemplates(projectRoot);
+  const templates = copyTemplates(projectRoot, userLanguage);
   const tools = requestedTools ?? detectTools(projectRoot);
   const skills = installProjectSkills(projectRoot, tools, "init");
-  return { projectRoot, tools, templates, skills };
+  return { projectRoot, userLanguage, tools, templates, skills };
 }
 
 export function updateProject(projectRoot, requestedTools) {

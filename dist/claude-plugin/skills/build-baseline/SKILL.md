@@ -3,9 +3,14 @@ name: build-baseline
 description: Build or extend a reusable literature or canonical-model Baseline by running the smallest claim-bearing real reproduction first, then deepen it as evidence warrants. Use for benchmark reproduction work; do not treat it as a hypothesis-driven Cycle.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: f76ae6e2ec42ab747678a0018a3989f5927da594997c7ec0fa66e2ea23216672 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: claude; distribution: plugin; contentHash: 000f98618663e0c146169dc2b7a7547516ba0b2281cede9021714a629b746b2d -->
 
 # Build an OpenResearch Baseline
+
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
 
 Build a reusable comparison asset without disguising project results as published results.
 

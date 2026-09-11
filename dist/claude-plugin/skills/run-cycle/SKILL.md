@@ -3,9 +3,14 @@ name: run-cycle
 description: Execute an explicitly approved OpenResearch Cycle with lightweight, decision-focused Evidence capture; diagnose the first supported bottleneck and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: 8ed67384785f6b574eaedc717efbd30652a05c4327af60b4f8ec987b1e645195 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: claude; distribution: plugin; contentHash: 901caf84202fcac72c392258f80169deb5a5588d1dd42c08457129a300a95754 -->
 
 # Run an OpenResearch Cycle
+
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
 
 Execute the approved scientific contract while preserving research momentum and the user's control plane.
 

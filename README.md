@@ -9,14 +9,14 @@ It is deliberately not a renamed software specification process. A successful Cy
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.2.5 init --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.2.6 init --language zh-CN --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.2.5
-openresearch init --tools codex,claude
+npm install -g github:yuanweibin/openresearch#v0.2.6
+openresearch init --language zh-CN --tools codex,claude
 ```
 
 During development, replace the version tag with `#main`.
@@ -36,7 +36,7 @@ Codex project invocation uses `$openresearch-explore`; Claude Code project invoc
 ## CLI
 
 ```bash
-openresearch init --tools codex,claude
+openresearch init --language en --tools codex,claude
 openresearch status --json
 openresearch validate --json
 openresearch validate --cycle 01 --json
@@ -52,6 +52,7 @@ openresearch doctor
 - `doctor` reports runtime, discovery-path, modification, and version-drift issues.
 
 If no `--tools` value is given, `init` detects existing agent directories; a new project defaults to both Codex and Claude Code.
+`init` requires `--language en` or `--language zh-CN` and stores the choice as `user_language`.
 
 ## Ownership and upgrades
 

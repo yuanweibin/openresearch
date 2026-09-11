@@ -5,6 +5,11 @@ description: Create or coherently revise one OpenResearch Cycle contract, tasks,
 
 # Propose an OpenResearch Cycle
 
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
+
 Turn one primary uncertainty into the smallest convincing experimental contract. A Cycle is not a software milestone and is not required to enumerate every possible future task.
 
 Before writing, read the Program, current status, the design files used by this uncertainty, and

@@ -5,6 +5,11 @@ description: Execute an explicitly approved OpenResearch Cycle with lightweight,
 
 # Run an OpenResearch Cycle
 
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
+
 Execute the approved scientific contract while preserving research momentum and the user's control plane.
 
 Read the Cycle contract and current execution state. Read only the inherited design files named by
