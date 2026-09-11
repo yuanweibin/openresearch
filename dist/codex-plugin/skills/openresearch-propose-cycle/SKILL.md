@@ -3,9 +3,14 @@ name: openresearch-propose-cycle
 description: Create or coherently revise one OpenResearch Cycle contract, tasks, and user-reviewable deliverables around a single scientific uncertainty. Use when the user wants the next experiment planned; stop before execution until deliverables are explicitly approved.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: codex; distribution: plugin; contentHash: c6eab1cd625f0634a6b06c759053ebc18c3c01fb3aefa59b89df5cdaf73540ff -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: codex; distribution: plugin; contentHash: 2fe7409f60a1201264fc7d9d15bba99d61180180f62d95344be20b305a2c12ae -->
 
 # Propose an OpenResearch Cycle
+
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
 
 Turn one primary uncertainty into the smallest convincing experimental contract. A Cycle is not a software milestone and is not required to enumerate every possible future task.
 

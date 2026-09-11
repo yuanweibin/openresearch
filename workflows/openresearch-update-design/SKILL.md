@@ -5,6 +5,11 @@ description: Establish the first user-approved OpenResearch Program design or pr
 
 # Update OpenResearch Design
 
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
+
 Maintain the canonical, cross-Cycle research design without turning every experimental observation into a new default.
 
 Read [authority and approval](references/authority.md), [artifact contract](references/artifact-contract.md), and [literature-map contract](references/literature-map.md). Identify either:

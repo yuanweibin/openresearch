@@ -1,13 +1,13 @@
 {
   "generatedBy": "openresearch",
-  "packageVersion": "0.2.5",
-  "workflowVersion": "0.2.5",
-  "canonicalContentHash": "c6eab1cd625f0634a6b06c759053ebc18c3c01fb3aefa59b89df5cdaf73540ff",
+  "packageVersion": "0.2.6",
+  "workflowVersion": "0.2.6",
+  "canonicalContentHash": "2fe7409f60a1201264fc7d9d15bba99d61180180f62d95344be20b305a2c12ae",
   "platform": "codex",
   "distribution": "plugin",
   "skill": "openresearch-propose-cycle",
   "files": {
-    "SKILL.md": "e4ff7bcad302bed7261647a6174f53df1e9c5e24bf5340cb7545f9068c5b540a",
+    "SKILL.md": "4f3537f43425ae0362cc3aab5a3a1feae4c6f6db81e0393171681544ad4a9e52",
     "references/artifact-contract.md": "103cfed5e42c844017283bd9e4782057d25b70284c50fda5a58f8f618be95c51",
     "references/authority.md": "d63b48356043f33e2439c134c2a152d0d3cc19660ce84d82b9f85c2d71c528ae",
     "references/baseline-contract.md": "fc4d873d5ebb135a12b4901d04dbcab70ae767dc239186be63d736c9585b5634",

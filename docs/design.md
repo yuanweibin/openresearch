@@ -28,6 +28,10 @@ productionize every module before observing the actual research path.
 - **Evidence** is an observation capable of changing a research decision, including negative and failed outcomes.
 - **Decision** explains the next action and why competing actions were not selected.
 
+The project records `user_language` during initialization. All user-facing document prose and artifact
+labels use that language unless the user requests a different language for a specific output. Machine
+identifiers, schema keys, filenames, code, and original source titles remain unchanged.
+
 ## Approval loop
 
 ```text

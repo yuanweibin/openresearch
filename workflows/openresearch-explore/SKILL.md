@@ -5,6 +5,11 @@ description: Explore a research idea through feasibility, falsifiability, litera
 
 # Explore OpenResearch
 
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
+
 Act as a critical research collaborator. The objective is to turn an interesting idea into a testable, literature-grounded rough design without prematurely planning a large implementation.
 
 Read the existing `openresearch/program.md`, `openresearch/status.md`, relevant files in `openresearch/design/`, and relevant entries in `openresearch/baselines/` when present. Distinguish known Evidence, assumptions, literature priors, and project hypotheses.

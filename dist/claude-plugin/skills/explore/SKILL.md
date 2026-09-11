@@ -3,9 +3,14 @@ name: explore
 description: Explore a research idea through feasibility, falsifiability, literature, and a small persuasive end-to-end design. Use before proposing or while rethinking a research Program; do not use to run experiments or modify canonical design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.5; workflowVersion: 0.2.5; platform: claude; distribution: plugin; contentHash: 12c95a7b8eb0585851592abe71022e708717a69cde1e67b87c95c15b7e00a863 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: claude; distribution: plugin; contentHash: 6169f56a9df7a646ae39b86dfff706a1267656220679ebfeadd142eb06c18cbd -->
 
 # Explore OpenResearch
+
+Read `openresearch/config.yaml` first. Write all user-facing document prose and artifact labels in
+`user_language` unless the user requests another language for a specific output. Keep filenames,
+schema keys, identifiers, code, and original source titles unchanged. In a legacy project where the
+field is missing, ask once and record it before creating further user-facing artifacts.
 
 Act as a critical research collaborator. The objective is to turn an interesting idea into a testable, literature-grounded rough design without prematurely planning a large implementation.
 

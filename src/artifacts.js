@@ -6,6 +6,7 @@ import {
   EXECUTION_STATES,
   SCHEMA_VERSION,
   SCIENTIFIC_STATES,
+  USER_LANGUAGES,
 } from "./constants.js";
 import { listFiles, readFrontmatter } from "./files.js";
 
@@ -321,6 +322,24 @@ export function validateProject(projectRoot, requestedCycle = null, requestedBas
       issues.push(issue("error", "missing-program-artifact", `Missing ${relative}`, file));
     } else if (artifact) {
       validateFrontmatter(file, artifact, issues);
+    }
+  }
+
+  const configFile = path.join(researchRoot, "config.yaml");
+  if (fs.existsSync(configFile)) {
+    const config = fs.readFileSync(configFile, "utf8");
+    const language = config.match(/^user_language:\s*(.+?)\s*$/m)?.[1];
+    if (!language) {
+      issues.push(issue("error", "missing-user-language", "config.yaml requires user_language", configFile));
+    } else if (!USER_LANGUAGES.includes(language)) {
+      issues.push(
+        issue(
+          "error",
+          "unsupported-user-language",
+          `Unsupported user_language ${language}; expected ${USER_LANGUAGES.join(" or ")}`,
+          configFile,
+        ),
+      );
     }
   }
 

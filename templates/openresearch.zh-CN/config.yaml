@@ -1,6 +1,6 @@
 schema_version: 0.1.0
 workflow_version: {{WORKFLOW_VERSION}}
-user_language: en
+user_language: zh-CN
 progress_reporting: event-driven
 cycle_directory: openresearch/cycles
 baseline_directory: openresearch/baselines

@@ -1,12 +1,12 @@
 import path from "node:path";
 import { projectStatus, validateProject } from "./artifacts.js";
 import { doctor } from "./doctor.js";
-import { initProject, normalizeTools, updateProject } from "./installer.js";
+import { initProject, normalizeLanguage, normalizeTools, updateProject } from "./installer.js";
 
 const HELP = `OpenResearch — evidence-driven research cycles
 
 Usage:
-  openresearch init [--tools codex,claude] [--root PATH] [--json]
+  openresearch init --language en|zh-CN [--tools codex,claude] [--root PATH] [--json]
   openresearch status [--root PATH] [--json]
   openresearch validate [--cycle ID | --baseline ID] [--root PATH] [--json]
   openresearch update [--tools codex,claude] [--root PATH] [--json]
@@ -15,7 +15,7 @@ Usage:
 `;
 
 function parseArguments(argv) {
-  const options = { json: false, root: process.cwd(), tools: null, cycle: null, baseline: null };
+  const options = { json: false, root: process.cwd(), tools: null, language: null, cycle: null, baseline: null };
   let command = null;
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
@@ -23,7 +23,7 @@ function parseArguments(argv) {
     if (value === "--version" || value === "-v") return { command: "version", options };
     if (value === "--json") {
       options.json = true;
-    } else if (value === "--root" || value === "--tools" || value === "--cycle" || value === "--baseline") {
+    } else if (value === "--root" || value === "--tools" || value === "--language" || value === "--cycle" || value === "--baseline") {
       const next = argv[index + 1];
       if (!next || next.startsWith("--")) throw new Error(`${value} requires a value`);
       options[value.slice(2)] = next;
@@ -32,6 +32,8 @@ function parseArguments(argv) {
       options.root = value.slice("--root=".length);
     } else if (value.startsWith("--tools=")) {
       options.tools = value.slice("--tools=".length);
+    } else if (value.startsWith("--language=")) {
+      options.language = value.slice("--language=".length);
     } else if (value.startsWith("--cycle=")) {
       options.cycle = value.slice("--cycle=".length);
     } else if (value.startsWith("--baseline=")) {
@@ -46,8 +48,12 @@ function parseArguments(argv) {
   }
   options.root = path.resolve(options.root);
   options.tools = normalizeTools(options.tools);
+  options.language = normalizeLanguage(options.language);
   if (options.cycle && options.baseline) {
     throw new Error("--cycle and --baseline are mutually exclusive");
+  }
+  if (options.language && command !== "init") {
+    throw new Error("--language is only valid with init");
   }
   return { command: command ?? "help", options };
 }
@@ -62,6 +68,7 @@ function humanInit(result) {
   const updated = result.skills.filter((item) => item.action === "updated").length;
   return [
     `OpenResearch initialized in ${result.projectRoot}`,
+    `User language: ${result.userLanguage}`,
     `Tools: ${result.tools.join(", ")}`,
     `Research templates: ${result.templates.created.length} created, ${result.templates.preserved.length} preserved`,
     `Skills: ${installed} installed, ${updated} refreshed`,
@@ -128,7 +135,7 @@ export async function main(argv) {
     return;
   }
   if (command === "init") {
-    const result = initProject(options.root, options.tools);
+    const result = initProject(options.root, options.tools, options.language);
     emit(result, options.json, humanInit);
     return;
   }
