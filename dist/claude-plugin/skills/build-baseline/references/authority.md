@@ -12,15 +12,24 @@ OpenResearch separates discussion, Cycle execution, and canonical design authori
 | `openresearch/cycles/<id>/` | One Cycle | `openresearch-propose-cycle` while designing; `openresearch-run-cycle` after approval |
 | Generated agent skills | OpenResearch CLI | `openresearch init` or `openresearch update` |
 
-Approval must be attributable to a user message and scoped to a concrete artifact revision. Agent inference, a successful process exit, or an unchecked objection is not approval.
+Approval must be attributable to a user message and scoped to a concrete contract or change. The user
+message grants authority immediately; copying it into an artifact records that authority but does not
+create it. Agent inference, a successful process exit, or an unchecked objection is not approval.
 
-Before running a Cycle, its `status.md` must record `approval: approved` and an `approved_at` value. Before promoting a Design Delta, the proposal and the user's approval must be identified in `design/decisions.md`.
+Before running a Cycle, explicit user approval must exist for the affected contract. `status.md` records
+`approval: approved` and `approved_at` asynchronously when needed, without delaying code preparation or
+an already authorized run. Before promoting a Design Delta, the proposal and the user's approval must
+be identified in `design/decisions.md`.
 
 Before expensive Baseline reproduction or broad figure digitization, `status.md` must identify the
 approved expansion scope and approval provenance. A bounded real slice inside the user's existing
 scope may run before that gate. Baseline qualification never authorizes a Cycle to rewrite it.
 
-If the user changes the Cycle while it is running, record the decision before the next Evidence boundary. Changes to the main variable, scientific thresholds, data, case, or resource scope require renewed approval. Recoverable engineering changes that preserve the frozen contract do not.
+If the user changes the Cycle while it is running, obtain renewed approval before executing changes to
+the main variable, scientific thresholds, data, case, or resource scope. Once approval exists, begin
+the executable work immediately and record the decision concurrently. Finish that record before
+interpreting the resulting Evidence, transferring execution to a new owner, or concluding the Cycle.
+Recoverable engineering changes that preserve the frozen contract do not require renewed approval.
 
 ## Canonical design rule
 

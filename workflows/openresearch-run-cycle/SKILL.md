@@ -21,7 +21,30 @@ the Cycle, plus:
 - [Baseline contract](references/baseline-contract.md) when the Cycle consumes a literature or
   canonical-model comparison
 
-Do not start unless `status.md` records explicit user approval of the current deliverables and contract. If approval is missing or the artifacts disagree, stop and report the exact gate.
+Require explicit user approval of the current contract before affected execution. Approval in the
+conversation is immediately operative even when `status.md` has not caught up; recordkeeping does not
+create authority. If the latest user instruction and stored artifacts disagree only about execution
+ordering or already approved operational scope, follow the user and reconcile the record in parallel.
+Stop only when authorization, scientific scope, safety, budget, or held-out boundaries remain unclear.
+
+## Code first, document second
+
+When the conversation or existing artifacts provide enough authority and boundaries to begin, start
+writing or running the next code immediately. Do not edit human-readable records first, wait for their
+completion, or make them a prerequisite for preparing the executable artifact, command, or job.
+
+If human-readable Cycle records need creation or catch-up and subagents are available, simultaneously
+start exactly one documentation subagent. Give it the established user decision, Evidence, affected
+files, and the narrow documentation boundary. It may update `status.md`, `tasks.md`, `decisions.md`, and
+`results/report.md`; it must not write code, run experiments, change the contract, choose an analysis,
+reinterpret Evidence, ask the user, or spawn more agents. The Cycle owner never waits for it. The
+documentation subagent reports any unsupported gap without inventing content and ends immediately when
+its documentation task is complete.
+
+Without subagent support, deliver code or start the run first, then update human-readable records while
+the user uploads, the job queues, or computation runs. Complete the written record no later than result
+interpretation, transfer to a new owner, or Cycle conclusion. A user's explicit ordering instruction
+takes priority unless it would cross an authorization, safety, budget, or held-out boundary.
 
 Run the smallest bounded scientifically real case first, through the actual data, code, model,
 service, and metric path. Use inline assertions and preserve the first interpretable output or
@@ -46,10 +69,10 @@ Minimize user attention and time to meaningful Evidence, not script count. Use r
 time for local analysis preparation and optional documentation. Pause only for authorization, a safety
 boundary, or a scientific choice outside the approved contract.
 
-Use one Cycle owner and delegate only when execution materially benefits. At launch set the owner and
-next Evidence checkpoint; let scripts capture commands, material identities, seeds, resources, raw
-outputs, and routine failures. Require exact hashes only when identity affects a conclusion, safety, or
-consumer eligibility.
+Use one Cycle owner and delegate scientific execution only when it materially benefits. The dedicated
+documentation subagent is not an execution owner and receives no decision authority. Let scripts
+capture commands, material identities, seeds, resources, raw outputs, and routine failures. Require
+exact hashes only when identity affects a conclusion, safety, or consumer eligibility.
 
 Keep human-readable records transition-based as defined by the artifact contract. Do not duplicate
 events or edit files for unchanged progress. When the real case fails, repair and resume that same path;

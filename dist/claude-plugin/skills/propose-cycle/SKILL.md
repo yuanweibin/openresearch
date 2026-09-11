@@ -3,7 +3,7 @@ name: propose-cycle
 description: Create or coherently revise one OpenResearch Cycle contract, tasks, and user-reviewable deliverables around a single scientific uncertainty. Use when the user wants the next experiment planned; stop before execution until deliverables are explicitly approved.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.6; workflowVersion: 0.2.6; platform: claude; distribution: plugin; contentHash: 2fe7409f60a1201264fc7d9d15bba99d61180180f62d95344be20b305a2c12ae -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.7; workflowVersion: 0.2.7; platform: claude; distribution: plugin; contentHash: 2fe7409f60a1201264fc7d9d15bba99d61180180f62d95344be20b305a2c12ae -->
 
 # Propose an OpenResearch Cycle
 

@@ -86,6 +86,19 @@ access and reduction stay near the data; compact outputs move to the environment
 analysis can iterate fastest. Approval, resource limits, and held-out isolation may require separate
 phases. Optional documentation is completed while remote work runs or waits in a queue.
 
+## Code first, document second
+
+When the latest user conversation and stored artifacts already establish the authority and boundaries
+needed for the next action, the Cycle owner starts code immediately. Approval must precede affected
+execution, but copying that approval into Markdown must not delay code preparation, user handoff, or an
+authorized run.
+
+When subagents are available and human-readable Cycle records need updating, the owner starts exactly
+one documentation subagent in parallel. That subagent records only established decisions and Evidence,
+does not write code or make scientific choices, never blocks the owner, and ends after the documentation
+task. Without subagents, documentation follows code delivery or run start and is completed before
+result interpretation, owner transfer, or Cycle conclusion.
+
 This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support follows the same approval and Evidence boundaries without treating ordinary single-agent execution as degraded.
 
 ## Write authority

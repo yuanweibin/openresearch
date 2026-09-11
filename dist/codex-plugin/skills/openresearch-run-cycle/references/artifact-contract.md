@@ -40,6 +40,12 @@ During execution, publish results below `results/`. Keep `results/report.md` as 
 The Cycle contract is comprehensive before approval; the live execution record is intentionally
 sparse. Record state transitions and decision-bearing Evidence, not a prose transcript of tool calls.
 
+Code is on the critical path; human-readable documentation is not. Once authority and boundaries are
+clear, the Cycle owner starts code immediately. When subagents are available and documentation is due,
+exactly one documentation subagent updates the human-readable Cycle records concurrently from
+established facts, then ends. It has no authority over code, execution, scope, scientific choices, or
+canonical design. Without subagents, defer documentation until after code delivery or run start.
+
 - `status.md` is the current macro state, not an event log.
 - `tasks.md` changes when a leaf state or resume boundary changes, not after each retry or poll.
 - `decisions.md` contains scientifically or operationally consequential choices and anomalies, not

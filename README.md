@@ -4,18 +4,38 @@ OpenResearch is an evidence-driven workflow for research with coding agents. It 
 
 It is deliberately not a renamed software specification process. A successful Cycle reduces an important uncertainty; it does not need to complete a backlog.
 
+## Code first, document second
+
+Once the latest user conversation and current artifacts provide enough authorization, scientific
+scope, safety, resource, and held-out boundaries to begin, the Cycle owner starts writing or running
+code immediately. Written recordkeeping never creates authorization and must not delay the executable
+artifact, command, or job the user is waiting for.
+
+When human-readable Cycle records need to catch up and the host supports subagents, start exactly one
+dedicated documentation subagent in parallel with the main code path. It may update only the approved
+Cycle's human-readable status, task, decision, and report records from already established user
+decisions and Evidence. It does not write code, run experiments, change scope, make scientific choices,
+or spawn more agents. It must not block the Cycle owner and ends as soon as the documentation update is
+complete. Without subagent support, the owner updates those records only after code is delivered or the
+run has started.
+
+Approval must precede the affected execution. Its written record may be completed concurrently and no
+later than result interpretation, transfer to a new owner, or Cycle conclusion. An explicit user
+instruction about work order takes priority unless it would cross an authorization, safety, budget, or
+held-out boundary.
+
 ## Install from GitHub
 
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.2.6 init --language zh-CN --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.2.7 init --language zh-CN --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.2.6
+npm install -g github:yuanweibin/openresearch#v0.2.7
 openresearch init --language zh-CN --tools codex,claude
 ```
 
