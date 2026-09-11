@@ -1,17 +1,17 @@
 {
   "generatedBy": "openresearch",
-  "packageVersion": "0.2.3",
-  "workflowVersion": "0.2.3",
+  "packageVersion": "0.2.4",
+  "workflowVersion": "0.2.4",
   "canonicalContentHash": "4ce1af24ba8c51ed3638a34122d7c994a3bd2025980e3a2f6b1167ec0ed06f50",
   "platform": "codex",
   "distribution": "plugin",
   "skill": "openresearch-update-design",
   "files": {
-    "SKILL.md": "eae50fadd64b72f51c94cf56a35d6b6ab42dc9089a9dd197660316497bd52d58",
+    "SKILL.md": "763f4b3db316c07100d2a622aa5c3765a0dc3e2896db29035848711c179b6076",
     "references/artifact-contract.md": "eb8f8bfd6ec37555395cd1e683a1448385379bc1d9d8b3364934c32954cd69b2",
     "references/authority.md": "38e39ca56cd019e30d8420772ad9f00cca7b99445451de7418717117a5f94cb0",
     "references/baseline-contract.md": "9e1cd122f05ebacce3fbe236824e5bf21304f8c829c6f2b8fa41922f1bb7dcab",
-    "references/cycle-template.md": "fd5786780f90c3bf0b8968c06f67c970d21018e59e3bcd1636cc54321c25d1ab",
+    "references/cycle-template.md": "f13b3d10b4437ca01b4dc9e95ec66f2a0ff99b77e7bc4daff37784090f6ad976",
     "references/literature-map.md": "75292263372d69e960f1b3d8a4b96b9cf8fbdc833600ba5edac6f60b8254b233"
   }
 }

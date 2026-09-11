@@ -3,7 +3,7 @@ name: propose-cycle
 description: Create or coherently revise one OpenResearch Cycle contract, tasks, and user-reviewable deliverables around a single scientific uncertainty. Use when the user wants the next experiment planned; stop before execution until deliverables are explicitly approved.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.3; workflowVersion: 0.2.3; platform: claude; distribution: plugin; contentHash: cb0bd2b296fc46fd5aa4331bdd43ec4b5368c4969fe0fd1e131041c8f16bf642 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.4; workflowVersion: 0.2.4; platform: claude; distribution: plugin; contentHash: c6eab1cd625f0634a6b06c759053ebc18c3c01fb3aefa59b89df5cdaf73540ff -->
 
 # Propose an OpenResearch Cycle
 
@@ -24,10 +24,17 @@ jobs, capability probes, or synthetic substitutes unless a standalone check is m
 tests the same likely failure, or prevents irreversible effects, material cost, credential exposure,
 unsafe execution, or held-out leakage.
 
-If execution requires the user to upload, submit, authenticate, or run on a remote system, design a
-single operational handoff: one complete runnable bundle and one command or job submission. Internal
-checks may fail closed, checkpoint, and report their stage, but should continue automatically when
-they pass. Do not plan conversational pauses between checks that the same run can perform.
+Choose an execution topology before defining tasks:
+
+- for local work or remote systems the agent controls through API or SSH, allow modular scripts and
+  multiple jobs, orchestrated without user involvement;
+- for user-mediated remote systems, minimize manual handoffs by preparing one complete handoff per
+  scientifically necessary phase, with internal checks continuing automatically when they pass;
+- place high-volume data access and reduction near the data, then transfer compact outputs for local
+  calibration, statistics, fitting, plotting, and reporting when those can iterate faster locally; and
+- preserve genuine phase boundaries for approval, resource expansion, or held-out isolation.
+
+Optimize time to meaningful Evidence and required user attention, not the number of scripts or jobs.
 
 Perform a targeted design check. Identify the approved design revision and inspect only frozen items
 the real case relies on or changes. Record explicit Cycle-local deviations and rollback in
@@ -53,6 +60,7 @@ The contract must:
 Use two-level tasks only for genuine resume boundaries. Do not represent validation as a separate
 task when it can be an assertion inside the real run. Add targeted regression checks after an
 observed failure only when they are likely to prevent recurrence. Put preparation of the complete
-runnable artifact before optional documentation whenever user time is on the execution critical path.
+user-mediated phase before optional documentation whenever user time is on the execution critical
+path.
 
 Finish with a compact explanation of what this Cycle can and cannot conclude, then explicitly request the user's confirmation of the deliverables. Leave `execution_state: designed` and `approval: pending`. Do not run experiments, start a background owner, or mark approval on the user's behalf.

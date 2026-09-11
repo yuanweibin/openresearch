@@ -43,9 +43,10 @@ Each required output names its path, content, readiness condition, and whether i
 
 Use stable IDs such as `1.1`, `1.2`, `2.1` only where they create genuine resume boundaries. The first
 executable leaf normally runs the bounded real case. Put cheap checks inside it instead of creating a
-preflight ladder. When the user operates a remote system, make that leaf one complete runnable handoff
-rather than a sequence of uploads and test commands. Each leaf records an output and a completion,
-rejection, or stop condition.
+preflight ladder. Split tasks by genuine scientific, data-locality, or control boundaries: agent-run
+local/API/SSH work may use any useful number of modules, while each user-mediated remote phase should
+arrive as one prepared handoff rather than a sequence of test commands. Each leaf records an output
+and a completion, rejection, or stop condition.
 
 ## `decisions.md`
 

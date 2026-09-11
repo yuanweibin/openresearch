@@ -3,7 +3,7 @@ name: openresearch-run-cycle
 description: Execute an explicitly approved OpenResearch Cycle with lightweight, decision-focused Evidence capture; diagnose the first supported bottleneck and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.3; workflowVersion: 0.2.3; platform: codex; distribution: plugin; contentHash: a687cd8289579efc6063876a4e67d48f65e809ea4a2fff7a5e3c7ba357059341 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.4; workflowVersion: 0.2.4; platform: codex; distribution: plugin; contentHash: 8ed67384785f6b574eaedc717efbd30652a05c4327af60b4f8ec987b1e645195 -->
 
 # Run an OpenResearch Cycle
 
@@ -28,11 +28,20 @@ only when it is substantially cheaper and exercises the same likely failure, or 
 against irreversible effects, material cost, credential exposure, unsafe execution, or held-out
 leakage.
 
-Minimize user coordination latency. When the user operates another machine or service, finish one
-complete runnable bundle first, provide one command or submission, put essential checks and automatic
-continuation inside it, and use its queue/runtime for documentation. Do not ask for a sequence of small
-runs when one bounded run can cover the path. Pause only for authorization, a safety boundary, or a
-scientific choice outside the approved contract.
+Choose the execution boundary by control and data locality:
+
+- locally, or on a remote system available through working API or SSH access, decompose and run
+  focused scripts or jobs freely without involving the user;
+- when the user must operate a remote system, prepare the complete next scientific phase before asking
+  them to act and avoid manual pauses that can be automated inside that phase;
+- keep high-volume reads and reductions near the remote data, then download compact outputs and do
+  iterative calibration, controls, statistics, fitting, plotting, and reporting locally when practical;
+  and
+- separate phases when approval, resource limits, or held-out isolation genuinely require it.
+
+Minimize user attention and time to meaningful Evidence, not script count. Use remote runtime or queue
+time for local analysis preparation and optional documentation. Pause only for authorization, a safety
+boundary, or a scientific choice outside the approved contract.
 
 Use one Cycle owner and delegate only when execution materially benefits. At launch set the owner and
 next Evidence checkpoint; let scripts capture commands, material identities, seeds, resources, raw

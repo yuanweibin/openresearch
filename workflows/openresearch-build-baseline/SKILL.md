@@ -30,10 +30,12 @@ effects, material cost, credential exposure, unsafe execution, or source-rights 
 discover and repair problems in the real case. Ask for approval before broad digitization, expensive
 simulation, or scope expansion, not before a bounded first slice already within the user's request.
 
-When the user must launch work on another machine or service, prepare one runnable bundle and one
-command that performs essential checks inline and proceeds to the real slice automatically. Do not
-turn internal checks into repeated user handoffs. Finish the runnable artifact before optional
-documentation, and use remote runtime or queue time for bookkeeping.
+Choose the execution split by access and data locality. When local, API, or SSH access lets the agent
+operate directly, use and run as many focused scripts or jobs as improve speed and clarity. When the
+user must operate a remote system, batch work into the fewest scientifically valid phases and prepare
+each phase completely before asking them to act. Keep bulk data access and reduction near the data;
+return compact numeric outputs for flexible local comparison, analysis, and plotting. Minimize user
+handoffs, not script count, and use remote runtime or queue time for optional documentation.
 
 During execution:
 
