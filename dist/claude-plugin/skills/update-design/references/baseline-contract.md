@@ -41,6 +41,11 @@ described as a reproduced paper result.
 
 ## Source extraction and digitization
 
+Begin with one claim-bearing vertical slice. Select a source result needed by a real downstream
+decision and run the actual digitization or solver path at the smallest scientifically meaningful
+scale. Expand coverage only after inspecting that output. A Baseline may remain `partial` while this
+slice is corrected or qualified; exhaustive coverage is not a prerequisite for learning.
+
 For each extracted table, equation, or curve record source page, figure/table/panel, variable
 definition, normalization, units, axis transform, extraction method, and uncertainty. Preserve
 the raw points before interpolation or resampling. Include checkpoints against visible ticks or
@@ -53,18 +58,21 @@ interpret disagreement. Do not mechanically reproduce every panel.
 
 ## Comparability and qualification
 
-Keep the source setup immutable. Put this project's executable mapping beside it and disclose
-every material difference in initial condition convention, Reynolds definition, grid, filter,
-discretization, time interval, reference data, model constants, and metric implementation.
+Keep the source setup immutable. Before the first slice, record only known differences that can alter
+the target claim. Grow the executable mapping as real discrepancies appear, and disclose all material
+differences before qualifying the Baseline for external consumers.
 
 Use `strict-reproduction` only when the claim-bearing setup matches. Otherwise label results
 `mapped-reproduction` or `contextual-comparison`. A successful curve shape under a materially
 different solver is not a strict reproduction.
 
-Before expensive simulation, publish the selected reproduction/extension matrix and obtain
-the user's approval. Raw numerical outputs and figures are both mandatory for any completed
-result; a screenshot without raw points and a raw file without an inspectable figure are not
-Baseline Evidence.
+Before broad or expensive expansion, publish the selected reproduction/extension scope and obtain
+the user's approval. A bounded real slice already inside the requested resource scope does not need a
+separate feasibility gate. Standalone validation is warranted only when it is materially cheaper than
+the slice and exercises the same likely failure, or protects safety, credentials, irreversible state,
+source rights, or a meaningful resource cap. Raw numerical outputs and figures are both mandatory for
+any completed result; a screenshot without raw points and a raw file without an inspectable figure are
+not Baseline Evidence.
 
 Cycles consume Baselines read-only and record the exact Baseline revision or artifact hash.
 Cycle-specific candidates remain in the Cycle; promote only reusable reference runs into the

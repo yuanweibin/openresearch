@@ -26,10 +26,9 @@ If the user changes the Cycle while it is running, record the decision before th
 
 A Cycle may test an explicit override to a frozen design item. It may not silently turn that override into the new default. At Cycle end, describe the supporting and conflicting Evidence in a Design Delta Proposal. Only `openresearch-update-design` may promote an approved proposal and advance the Program design revision.
 
-Before a Cycle is materialized, compare its consequential settings with every relevant frozen
-item and declared default in the current approved Program design. A request to create or revise a
-Cycle neither authorizes a canonical design change nor makes a mismatch an experimental
-override. When the request differs from the design, proceed only if the user has explicitly
-scoped the difference as Cycle-local; otherwise stop and ask whether to update the canonical
-design first or keep the change local. Conflicting canonical files or revision markers are an
-unresolved design state, not permission to choose whichever value fits the Cycle.
+Before a Cycle is materialized, compare the settings its real case relies on or changes with the
+relevant frozen items in the approved Program design. Clearly label any Cycle-local deviation in the
+proposed contract; the user's approval of that complete contract authorizes the deviation for that
+Cycle but not as a canonical default. Ask a separate scope question only when the user may intend a
+cross-Cycle default change or canonical files conflict. Conflicting canonical files or revision
+markers are an unresolved design state, not permission to choose whichever value fits the Cycle.

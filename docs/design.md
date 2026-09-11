@@ -12,7 +12,9 @@ Software delivery usually asks whether specified behavior was implemented. Resea
 | pass/fail | supported, refuted, inconclusive, or failed-with-diagnosis |
 | completed change | enough uncertainty reduction to choose the next variable |
 
-The default strategy is to build a small but scientifically persuasive end-to-end chain, inspect its failure, and deepen only the first evidence-supported bottleneck. It is not to productionize every module before observing the complete chain.
+The default strategy is to run a small but scientifically real end-to-end case, inspect its output or
+failure, and deepen only the first evidence-supported bottleneck. It is not to validate or
+productionize every module before observing the actual research path.
 
 ## Research objects
 
@@ -33,7 +35,7 @@ user idea
   -> critical exploration + literature
   -> rough Program design
   -> user approval
-  -> reusable Baseline extraction/reproduction when needed
+  -> one claim-bearing Baseline slice when needed
   -> Cycle contract + deliverables
   -> user approval
   -> execution + live Evidence + diagnosis
@@ -62,6 +64,23 @@ the safe resume boundary, scientific interpretation, Evidence eligibility, or th
 changes. Scouting and feasibility work use this lightweight default; expensive or claim-bearing runs
 may require stricter provenance.
 
+## Validation economy
+
+Validation is not a mandatory stage before research execution. The default is a bounded real vertical
+slice through the actual data, code, model, service, and metric path. Cheap assertions run inside that
+case; observed failures motivate targeted checks and repairs in the same path.
+
+A standalone mock, dry run, probe, synthetic case, or environment audit is justified only when it is
+substantially cheaper and exercises the same likely failure, or when it protects against irreversible
+effects, material cost, credential exposure, unsafe execution, source-rights violations, or held-out
+leakage. If validation costs about as much as the real slice or exercises a different path, run the
+real slice.
+
+User time is part of the experimental resource budget. When execution requires a user-operated remote
+system, the agent prepares one complete runnable bundle with inline checks and automatic continuation,
+then gives one command or submission. Optional documentation is completed while that run executes or
+waits in a queue, not before the user can start it.
+
 This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support may execute in a declared degraded mode while preserving the same approval and artifact boundaries.
 
 ## Write authority
@@ -89,7 +108,7 @@ This prevents “the same Reynolds number” or “a similar architecture” fro
 
 ## Evidence and media
 
-Evidence is qualified for named consumers such as `training-eligible`, `soft-ad-eligible`, or `external-replay-eligible`; a generic producer-side pass is insufficient. Failure artifacts remain serializable and published. Long runs distinguish smoke eligibility, completed trajectory, and scientific qualification.
+Evidence is qualified for named consumers such as `training-eligible`, `soft-ad-eligible`, or `external-replay-eligible`; a generic producer-side pass is insufficient. Decision-bearing failure artifacts remain serializable and published. Long runs distinguish a bounded real slice, completed trajectory, and scientific qualification.
 
 Decision-bearing figures are embedded in Markdown and retained in a scalable format. Videos are used only for genuine evolution, carry a shared visual contract and frame manifest, and do not replace quantitative time-history plots.
 
