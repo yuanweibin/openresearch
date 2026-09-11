@@ -76,10 +76,13 @@ effects, material cost, credential exposure, unsafe execution, source-rights vio
 leakage. If validation costs about as much as the real slice or exercises a different path, run the
 real slice.
 
-User time is part of the experimental resource budget. When execution requires a user-operated remote
-system, the agent prepares one complete runnable bundle with inline checks and automatic continuation,
-then gives one command or submission. Optional documentation is completed while that run executes or
-waits in a queue, not before the user can start it.
+User time is part of the experimental resource budget, but script count is not the optimization
+target. Local work and remote systems available through API or SSH may use any useful number of
+agent-orchestrated modules and jobs. When the user must operate a remote system, the agent batches work
+into the fewest scientifically valid phases and prepares each phase before requesting action. Bulk data
+access and reduction stay near the data; compact outputs move to the environment where downstream
+analysis can iterate fastest. Approval, resource limits, and held-out isolation may require separate
+phases. Optional documentation is completed while remote work runs or waits in a queue.
 
 This is a semantic capability rule, not a dependency on one vendor's subagent API. A host without delegation support may execute in a declared degraded mode while preserving the same approval and artifact boundaries.
 

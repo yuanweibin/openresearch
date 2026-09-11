@@ -22,10 +22,17 @@ jobs, capability probes, or synthetic substitutes unless a standalone check is m
 tests the same likely failure, or prevents irreversible effects, material cost, credential exposure,
 unsafe execution, or held-out leakage.
 
-If execution requires the user to upload, submit, authenticate, or run on a remote system, design a
-single operational handoff: one complete runnable bundle and one command or job submission. Internal
-checks may fail closed, checkpoint, and report their stage, but should continue automatically when
-they pass. Do not plan conversational pauses between checks that the same run can perform.
+Choose an execution topology before defining tasks:
+
+- for local work or remote systems the agent controls through API or SSH, allow modular scripts and
+  multiple jobs, orchestrated without user involvement;
+- for user-mediated remote systems, minimize manual handoffs by preparing one complete handoff per
+  scientifically necessary phase, with internal checks continuing automatically when they pass;
+- place high-volume data access and reduction near the data, then transfer compact outputs for local
+  calibration, statistics, fitting, plotting, and reporting when those can iterate faster locally; and
+- preserve genuine phase boundaries for approval, resource expansion, or held-out isolation.
+
+Optimize time to meaningful Evidence and required user attention, not the number of scripts or jobs.
 
 Perform a targeted design check. Identify the approved design revision and inspect only frozen items
 the real case relies on or changes. Record explicit Cycle-local deviations and rollback in
@@ -51,6 +58,7 @@ The contract must:
 Use two-level tasks only for genuine resume boundaries. Do not represent validation as a separate
 task when it can be an assertion inside the real run. Add targeted regression checks after an
 observed failure only when they are likely to prevent recurrence. Put preparation of the complete
-runnable artifact before optional documentation whenever user time is on the execution critical path.
+user-mediated phase before optional documentation whenever user time is on the execution critical
+path.
 
 Finish with a compact explanation of what this Cycle can and cannot conclude, then explicitly request the user's confirmation of the deliverables. Leave `execution_state: designed` and `approval: pending`. Do not run experiments, start a background owner, or mark approval on the user's behalf.
