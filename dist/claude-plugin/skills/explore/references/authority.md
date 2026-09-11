@@ -22,7 +22,7 @@ an already authorized run. Before promoting a Design Delta, the proposal and the
 be identified in `design/decisions.md`.
 
 Before expensive Baseline reproduction or broad figure digitization, `status.md` must identify the
-approved expansion scope and approval provenance. A bounded real slice inside the user's existing
+approved expansion scope and approval provenance. A target run inside the user's existing
 scope may run before that gate. Baseline qualification never authorizes a Cycle to rewrite it.
 
 If the user changes the Cycle while it is running, obtain renewed approval before executing changes to

@@ -24,18 +24,28 @@ later than result interpretation, transfer to a new owner, or Cycle conclusion. 
 instruction about work order takes priority unless it would cross an authorization, safety, budget, or
 held-out boundary.
 
+## Minimize total time to scientific Evidence
+
+Choose the scientifically sufficient execution path with the lowest expected total time to
+decision-bearing Evidence. Count development, validation, execution, data transfer, required user
+interaction, reruns, and likely rework—not just the cost of one job. A smaller pilot is useful only when
+it can replace or cancel the target run, or materially reduce its expected failure and rework cost. Do
+not insert a pilot when the target-scale run will still be required regardless of the pilot outcome.
+Treat a user-selected scale, window, sample, or case as the target unless a concrete authorization,
+safety, budget, or held-out boundary requires a change.
+
 ## Install from GitHub
 
 No npm-registry release is required. Pin a tag or commit for reproducible projects:
 
 ```bash
-npx --yes github:yuanweibin/openresearch#v0.2.7 init --language zh-CN --tools codex,claude
+npx --yes github:yuanweibin/openresearch#v0.2.8 init --language zh-CN --tools codex,claude
 ```
 
 Or install the CLI globally from GitHub:
 
 ```bash
-npm install -g github:yuanweibin/openresearch#v0.2.7
+npm install -g github:yuanweibin/openresearch#v0.2.8
 openresearch init --language zh-CN --tools codex,claude
 ```
 

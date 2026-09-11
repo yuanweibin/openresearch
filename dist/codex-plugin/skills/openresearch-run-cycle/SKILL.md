@@ -3,7 +3,7 @@ name: openresearch-run-cycle
 description: Execute an explicitly approved OpenResearch Cycle with lightweight, decision-focused Evidence capture; diagnose the first supported bottleneck and draft a Design Delta Proposal. Use for running or continuing a Cycle; never promote canonical Program design.
 ---
 
-<!-- generatedBy: openresearch; packageVersion: 0.2.7; workflowVersion: 0.2.7; platform: codex; distribution: plugin; contentHash: 634f99382ed9592a8224bc938e232b0ae9e06489b627539002163e5f8de63de3 -->
+<!-- generatedBy: openresearch; packageVersion: 0.2.8; workflowVersion: 0.2.8; platform: codex; distribution: plugin; contentHash: 4e51066c1fee4c538a49d406a7d97e1562983cffd196d97276d22d35839db41a -->
 
 # Run an OpenResearch Cycle
 
@@ -48,13 +48,14 @@ the user uploads, the job queues, or computation runs. Complete the written reco
 interpretation, transfer to a new owner, or Cycle conclusion. A user's explicit ordering instruction
 takes priority unless it would cross an authorization, safety, budget, or held-out boundary.
 
-Run the smallest bounded scientifically real case first, through the actual data, code, model,
-service, and metric path. Use inline assertions and preserve the first interpretable output or
-failure. Do not substitute mocks, dry runs, import-only jobs, capability probes, synthetic cases, or
-environment audits merely because the real path is uncertain. A standalone validation is justified
-only when it is substantially cheaper and exercises the same likely failure, or when it protects
-against irreversible effects, material cost, credential exposure, unsafe execution, or held-out
-leakage.
+Run the approved scientifically sufficient path with the lowest expected total time to
+decision-bearing Evidence, through the actual data, code, model, service, and metric path. Count
+development, validation, execution, transfer, required user interaction, reruns, and likely rework.
+Use the user-selected target scale. Do not insert a smaller pilot when that target run will still be
+required regardless of the pilot outcome. A pilot is justified only when it can replace or cancel the
+target run, materially reduce expected failure and rework cost, or protect against irreversible
+effects, material cost, credential exposure, unsafe execution, or held-out leakage. Put cheap
+assertions inside the target run and preserve its first interpretable output or failure.
 
 Choose the execution boundary by control and data locality:
 
@@ -87,7 +88,7 @@ reusable reference, propose a separate Baseline update instead of silently movin
 
 Within a frozen contract, repair recoverable engineering faults and resume from published checkpoints. Do not silently change the main variable, data/case, scientific thresholds, or resource scope.
 
-If the Program design omitted an implementation choice needed by this Cycle, make the smallest literature-supported exploratory choice, label it as a Cycle-local override, record alternatives and rollback, and test it inside this Cycle. An unexpected result triggers diagnosis before expansion.
+If the Program design omitted an implementation choice needed by this Cycle, make the least-assumptive literature-supported exploratory choice, label it as a Cycle-local override, record alternatives and rollback, and test it inside this Cycle. An unexpected result triggers diagnosis before expansion.
 
 Conclude by:
 

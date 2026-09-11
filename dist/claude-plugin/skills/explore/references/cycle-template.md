@@ -31,9 +31,11 @@ Record the inherited Program design revision, the frozen items the real case act
 any explicit Cycle-local deviation with its promotion Evidence and rollback. A short list is enough;
 do not inventory unrelated settings or require a matrix when there is no material deviation.
 
-Define the smallest scientifically real end-to-end case, one main variable, minimum useful controls,
-Evidence criteria fixed before results, resource and held-out limits, stopping rules, and only the
-provenance and literature links needed to interpret the result.
+Define the scientifically sufficient end-to-end path with the lowest expected total time to Evidence,
+one main variable, minimum useful controls, Evidence criteria fixed before results, resource and
+held-out limits, stopping rules, and only the provenance and literature links needed to interpret the
+result. Include development, validation, execution, transfer, user interaction, reruns, and likely
+rework when comparing paths. Do not add a smaller pilot if the target run remains mandatory.
 
 ## `deliverables.md`
 
@@ -42,7 +44,7 @@ Each required output names its path, content, readiness condition, and whether i
 ## `tasks.md`
 
 Use stable IDs such as `1.1`, `1.2`, `2.1` only where they create genuine resume boundaries. The first
-executable leaf normally runs the bounded real case. Put cheap checks inside it instead of creating a
+executable leaf normally runs the target-scale real case. Put cheap checks inside it instead of creating a
 preflight ladder. Split tasks by genuine scientific, data-locality, or control boundaries: agent-run
 local/API/SSH work may use any useful number of modules, while each user-mediated remote phase should
 arrive as one prepared handoff rather than a sequence of test commands. Each leaf records an output

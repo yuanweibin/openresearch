@@ -42,9 +42,11 @@ described as a reproduced paper result.
 ## Source extraction and digitization
 
 Begin with one claim-bearing vertical slice. Select a source result needed by a real downstream
-decision and run the actual digitization or solver path at the smallest scientifically meaningful
-scale. Expand coverage only after inspecting that output. A Baseline may remain `partial` while this
-slice is corrected or qualified; exhaustive coverage is not a prerequisite for learning.
+decision and run the scientifically sufficient digitization or solver path with the lowest expected
+total time to that Evidence. Do not insert a smaller scale when the target reproduction remains
+mandatory regardless of its outcome. Expand coverage only after inspecting the target output. A
+Baseline may remain `partial` while this slice is corrected or qualified; exhaustive coverage is not
+a prerequisite for learning.
 
 For each extracted table, equation, or curve record source page, figure/table/panel, variable
 definition, normalization, units, axis transform, extraction method, and uncertainty. Preserve
@@ -67,10 +69,10 @@ Use `strict-reproduction` only when the claim-bearing setup matches. Otherwise l
 different solver is not a strict reproduction.
 
 Before broad or expensive expansion, publish the selected reproduction/extension scope and obtain
-the user's approval. A bounded real slice already inside the requested resource scope does not need a
-separate feasibility gate. Standalone validation is warranted only when it is materially cheaper than
-the slice and exercises the same likely failure, or protects safety, credentials, irreversible state,
-source rights, or a meaningful resource cap. Raw numerical outputs and figures are both mandatory for
+the user's approval. A target run already inside the requested resource scope does not need a separate
+feasibility gate. A pilot is warranted only when it can replace or cancel the target run, materially
+reduce expected failure and rework cost, or protect safety, credentials, irreversible state, source
+rights, or a meaningful resource cap. Raw numerical outputs and figures are both mandatory for
 any completed result; a screenshot without raw points and a raw file without an inspectable figure are
 not Baseline Evidence.
 
